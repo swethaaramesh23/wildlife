@@ -39,37 +39,55 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Counter Animation
     const counters = document.querySelectorAll('.counter');
-    const speed = 200; // lower is slower
+    const speed = 200;
 
-    counters.forEach(counter => {
-        const updateCount = () => {
-            const target = +counter.getAttribute('data-target');
-            const count = +counter.innerText.replace(/,/g, '');
-            const inc = target / speed;
+    const animateCounters = () => {
+        counters.forEach(counter => {
+            const updateCount = () => {
+                const target = +counter.getAttribute('data-target');
+                const count = +counter.innerText.replace(/,/g, '');
+                const inc = target / speed;
 
-            if (count < target) {
-                counter.innerText = Math.ceil(count + inc).toLocaleString();
-                setTimeout(updateCount, 1);
-            } else {
-                counter.innerText = target.toLocaleString();
-            }
-        };
-        // Simple delay for effect
-        setTimeout(updateCount, 500);
-    });
+                if (count < target) {
+                    counter.innerText = Math.ceil(count + inc).toLocaleString();
+                    setTimeout(updateCount, 10);
+                } else {
+                    counter.innerText = target.toLocaleString();
+                }
+            };
+            setTimeout(updateCount, 400);
+        });
+    };
+    
+    animateCounters();
 
-    // Chart.js Initialization
+    // Chart.js Premium Styling
+    Chart.defaults.color = '#888';
+    Chart.defaults.font.family = "'Inter', sans-serif";
+
     const viewsCtx = document.getElementById('viewsChart');
     if(viewsCtx) {
+        // Create gradient for line chart
+        const ctx = viewsCtx.getContext('2d');
+        const gradient = ctx.createLinearGradient(0, 0, 0, 400);
+        gradient.addColorStop(0, 'rgba(203, 163, 88, 0.4)');
+        gradient.addColorStop(1, 'rgba(203, 163, 88, 0.0)');
+
         new Chart(viewsCtx, {
             type: 'line',
             data: {
                 labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
                 datasets: [{
-                    label: 'Page Views',
-                    data: [12000, 19000, 15000, 25000, 22000, 30000],
-                    borderColor: '#d4af37',
-                    backgroundColor: 'rgba(212, 175, 55, 0.1)',
+                    label: 'Portfolio Views',
+                    data: [12000, 19000, 15000, 28000, 22000, 35000],
+                    borderColor: '#cba358',
+                    backgroundColor: gradient,
+                    borderWidth: 2,
+                    pointBackgroundColor: '#050505',
+                    pointBorderColor: '#cba358',
+                    pointBorderWidth: 2,
+                    pointRadius: 4,
+                    pointHoverRadius: 6,
                     tension: 0.4,
                     fill: true
                 }]
@@ -78,11 +96,26 @@ document.addEventListener('DOMContentLoaded', () => {
                 responsive: true,
                 maintainAspectRatio: false,
                 plugins: {
-                    legend: { labels: { color: '#a0a0a0' } }
+                    legend: { display: false },
+                    tooltip: {
+                        backgroundColor: 'rgba(10, 10, 12, 0.9)',
+                        titleColor: '#fff',
+                        bodyColor: '#cba358',
+                        borderColor: 'rgba(255,255,255,0.1)',
+                        borderWidth: 1,
+                        padding: 15,
+                        displayColors: false
+                    }
                 },
                 scales: {
-                    y: { grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#a0a0a0' } },
-                    x: { grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#a0a0a0' } }
+                    y: { 
+                        grid: { color: 'rgba(255,255,255,0.03)', drawBorder: false },
+                        ticks: { padding: 10 }
+                    },
+                    x: { 
+                        grid: { display: false, drawBorder: false },
+                        ticks: { padding: 10 }
+                    }
                 }
             }
         });
@@ -93,38 +126,46 @@ document.addEventListener('DOMContentLoaded', () => {
         new Chart(revenueCtx, {
             type: 'bar',
             data: {
-                labels: ['Prints', 'Expeditions', 'Workshops', 'Licensing'],
+                labels: ['Prints', 'Tours', 'Workshops', 'Licensing'],
                 datasets: [{
                     label: 'Revenue ($)',
-                    data: [4500, 12000, 3500, 2000],
+                    data: [8500, 22000, 5500, 3200],
                     backgroundColor: [
-                        'rgba(212, 175, 55, 0.8)',
-                        'rgba(26, 54, 34, 0.8)',
-                        'rgba(255, 255, 255, 0.8)',
-                        'rgba(160, 160, 160, 0.8)'
+                        'rgba(203, 163, 88, 0.9)',
+                        'rgba(203, 163, 88, 0.6)',
+                        'rgba(203, 163, 88, 0.4)',
+                        'rgba(203, 163, 88, 0.2)'
                     ],
-                    borderRadius: 4
+                    borderRadius: 6,
+                    borderSkipped: false
                 }]
             },
             options: {
                 responsive: true,
                 maintainAspectRatio: false,
                 plugins: {
-                    legend: { display: false }
+                    legend: { display: false },
+                    tooltip: {
+                        backgroundColor: 'rgba(10, 10, 12, 0.9)',
+                        titleColor: '#fff',
+                        bodyColor: '#fff',
+                        borderColor: 'rgba(255,255,255,0.1)',
+                        borderWidth: 1,
+                        padding: 15,
+                        displayColors: false
+                    }
                 },
                 scales: {
-                    y: { grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#a0a0a0' } },
-                    x: { grid: { display: false }, ticks: { color: '#a0a0a0' } }
+                    y: { 
+                        grid: { color: 'rgba(255,255,255,0.03)', drawBorder: false },
+                        ticks: { padding: 10 }
+                    },
+                    x: { 
+                        grid: { display: false, drawBorder: false },
+                        ticks: { padding: 10 }
+                    }
                 }
             }
-        });
-    }
-
-    // Theme Toggle (Mockup interaction)
-    const themeToggle = document.getElementById('theme-toggle');
-    if(themeToggle) {
-        themeToggle.addEventListener('click', () => {
-            alert('Theme switching would toggle CSS variables in a full implementation.');
         });
     }
 });

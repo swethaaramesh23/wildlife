@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio | Stackly Wildlife Photography</title>
+    <title>Portfolio | Stackly Premium Wildlife Photography</title>
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -44,10 +44,11 @@
     </nav>
 
     <!-- Page Header -->
-    <header class="page-header" style="background-image: linear-gradient(rgba(5,5,5,0.3), rgba(5,5,5,0.6)), url('image/tiger1.webp');">
-        <div class="container">
-            <h1 class="page-title reveal-text">The <span class="text-gold">Portfolio</span></h1>
-            <p class="subtitle reveal-text delay-1">A curated selection of my finest work across various ecosystems.</p>
+    <header class="page-header">
+        <div class="container text-center" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+            <span class="section-subtitle reveal-text">Curated Selection</span>
+            <h1 class="page-title reveal-text delay-1">The <span class="text-gold">Portfolio</span></h1>
+            <p class="subtitle reveal-text delay-2" style="margin: 0 auto; max-width: 600px;">A curated selection of my finest cinematic work across various ecosystems.</p>
         </div>
     </header>
 
@@ -55,13 +56,13 @@
     <div class="category-nav fade-up">
         <div class="container">
             <ul class="cat-links">
-                <li><a href="#lions">Lions</a></li>
-                <li><a href="#tigers">Tigers</a></li>
-                <li><a href="#elephants">Elephants</a></li>
-                <li><a href="#birds">Birds</a></li>
-                <li><a href="#marine">Marine</a></li>
-                <li><a href="#macro">Macro</a></li>
-                <li><a href="#bw">B&W</a></li>
+                <li><a href="#lions" class="hover-target">Lions</a></li>
+                <li><a href="#tigers" class="hover-target">Tigers</a></li>
+                <li><a href="#elephants" class="hover-target">Elephants</a></li>
+                <li><a href="#birds" class="hover-target">Birds</a></li>
+                <li><a href="#marine" class="hover-target">Marine</a></li>
+                <li><a href="#macro" class="hover-target">Macro</a></li>
+                <li><a href="#bw" class="hover-target">Monochrome</a></li>
             </ul>
         </div>
     </div>
@@ -74,15 +75,28 @@
                 <div class="port-grid">
                     <div class="port-text fade-right">
                         <div class="cat-info glass-panel">
-                    <h3>Kings of the Savanna</h3>
-                    <p>Lions represent the raw power and majestic grace of the African plains. These apex predators are not just symbols of strength; they are vital to the health of the ecosystem. Our extensive field work in the Serengeti and Maasai Mara has allowed us to capture intimate family dynamics, dramatic hunts, and the quiet dignity of pride leaders.</p>
-                    <p style="margin-top: 15px; font-size: 0.9rem; color: var(--accent-gold);">Explore 45+ images featuring diverse prides across three countries.</p>
-                    <a href="gallery.html?cat=lions" class="btn btn-outline" style="margin-top: 20px;">View Full Gallery</a>
-                </div>
+                            <h3>Kings of the Savanna</h3>
+                            <p>Lions represent the raw power and majestic grace of the African plains. These apex predators are not just symbols of strength; they are vital to the health of the ecosystem. Our extensive field work has allowed us to capture intimate family dynamics, dramatic hunts, and the quiet dignity of pride leaders in cinematic lighting.</p>
+                            
+                            <div class="meta-details">
+                                <div class="meta-item">
+                                    <span class="meta-icon">📍</span>
+                                    <span>Location: Serengeti & Maasai Mara</span>
+                                </div>
+                                <div class="meta-item">
+                                    <span class="meta-icon">📷</span>
+                                    <span>Primary Gear: Sony A1 + 600mm f/4 GM</span>
+                                </div>
+                            </div>
+
+                            <a href="gallery.html?category=mammals" class="btn btn-outline hover-target">View Gallery</a>
+                        </div>
                     </div>
                     <div class="port-images">
-                        <img src="image/lion.webp" class="fade-up" alt="Lion portrait">
-                        <img src="image/lion1.webp" class="fade-up delay-1" alt="Lion resting">
+                        <img src="image/lion.webp" class="fade-up stagger-item" alt="Lion portrait">
+                        <img src="image/lion1.webp" class="fade-up delay-1 stagger-item" alt="Lion resting">
+                        <img src="image/big cat.webp" class="fade-up stagger-item" alt="Big cat">
+                        <img src="image/african wildlife.webp" class="fade-up delay-1 stagger-item" alt="African wildlife">
                     </div>
                 </div>
             </div>
@@ -91,14 +105,30 @@
         <section id="tigers" class="portfolio-section bg-alt">
             <div class="container">
                 <div class="port-grid reverse">
-                    <div class="port-text fade-right">
-                        <h2 class="section-title">Ghosts of the <span class="text-gold">Jungle</span></h2>
-                        <p>The elusive Bengal tigers of India. Capturing these solitary predators requires infinite patience and a deep understanding of the dense forest terrain.</p>
-                        <a href="gallery.html?cat=tigers" class="btn btn-outline hover-target" style="margin-top: 20px;">View Full Series</a>
+                    <div class="port-text fade-left">
+                        <div class="cat-info glass-panel">
+                            <h3>Ghosts of the Jungle</h3>
+                            <p>The elusive Bengal tigers of India. Capturing these solitary predators requires infinite patience, a deep understanding of the dense forest terrain, and respect for their territory. This series highlights the dramatic contrast of their vibrant coats against the dark jungle foliage.</p>
+                            
+                            <div class="meta-details">
+                                <div class="meta-item">
+                                    <span class="meta-icon">📍</span>
+                                    <span>Location: Ranthambore & Bandhavgarh</span>
+                                </div>
+                                <div class="meta-item">
+                                    <span class="meta-icon">📷</span>
+                                    <span>Primary Gear: Sony A1 + 400mm f/2.8 GM</span>
+                                </div>
+                            </div>
+
+                            <a href="gallery.html?category=mammals" class="btn btn-outline hover-target">View Gallery</a>
+                        </div>
                     </div>
                     <div class="port-images">
-                        <img src="image/tiger.webp" class="fade-up" alt="Tiger walking">
-                        <img src="image/tiger1.webp" class="fade-up delay-1" alt="Tiger portrait">
+                        <img src="image/tiger.webp" class="fade-up stagger-item" alt="Tiger walking">
+                        <img src="image/tiger1.webp" class="fade-up delay-1 stagger-item" alt="Tiger portrait">
+                        <img src="image/asian wildlife.webp" class="fade-up stagger-item" alt="Asian wildlife">
+                        <img src="image/asian wildlife1.webp" class="fade-up delay-1 stagger-item" alt="Asian wildlife forest">
                     </div>
                 </div>
             </div>
@@ -108,13 +138,29 @@
             <div class="container">
                 <div class="port-grid">
                     <div class="port-text fade-right">
-                        <h2 class="section-title">Gentle <span class="text-gold">Giants</span></h2>
-                        <p>A tribute to the emotional depth and wisdom of African elephants, highlighting their tight-knit family bonds and undeniable intelligence.</p>
-                        <a href="gallery.html?cat=elephants" class="btn btn-outline hover-target" style="margin-top: 20px;">View Full Series</a>
+                        <div class="cat-info glass-panel">
+                            <h3>Gentle Giants</h3>
+                            <p>A tribute to the emotional depth and wisdom of African elephants. This collection focuses on highlighting their tight-knit family bonds, undeniable intelligence, and the tragic beauty of their struggle against poaching and habitat loss.</p>
+                            
+                            <div class="meta-details">
+                                <div class="meta-item">
+                                    <span class="meta-icon">📍</span>
+                                    <span>Location: Amboseli & Chobe</span>
+                                </div>
+                                <div class="meta-item">
+                                    <span class="meta-icon">📷</span>
+                                    <span>Primary Gear: Sony A1 + 70-200mm f/2.8 GM II</span>
+                                </div>
+                            </div>
+
+                            <a href="gallery.html?category=mammals" class="btn btn-outline hover-target">View Gallery</a>
+                        </div>
                     </div>
                     <div class="port-images">
-                        <img src="image/elephant.webp" class="fade-up" alt="Elephant herd">
-                        <img src="image/elephant1.webp" class="fade-up delay-1" alt="Elephant portrait">
+                        <img src="image/elephant.webp" class="fade-up stagger-item" alt="Elephant herd">
+                        <img src="image/elephant1.webp" class="fade-up delay-1 stagger-item" alt="Elephant portrait">
+                        <img src="image/elephant2.webp" class="fade-up stagger-item" alt="Elephant playing">
+                        <img src="image/african wildlife1.webp" class="fade-up delay-1 stagger-item" alt="Savanna elephant">
                     </div>
                 </div>
             </div>
@@ -123,14 +169,30 @@
         <section id="birds" class="portfolio-section bg-alt">
             <div class="container">
                 <div class="port-grid reverse">
-                    <div class="port-text fade-right">
-                        <h2 class="section-title">Masters of the <span class="text-gold">Sky</span></h2>
-                        <p>From the lightning-fast stoop of a falcon to the colorful courtship displays of tropical birds, freezing the action of avian subjects.</p>
-                        <a href="gallery.html?cat=birds" class="btn btn-outline hover-target" style="margin-top: 20px;">View Full Series</a>
+                    <div class="port-text fade-left">
+                        <div class="cat-info glass-panel">
+                            <h3>Masters of the Sky</h3>
+                            <p>From the lightning-fast stoop of a falcon to the colorful courtship displays of tropical birds. Freezing the action of avian subjects requires the absolute limit of camera technology and anticipation.</p>
+                            
+                            <div class="meta-details">
+                                <div class="meta-item">
+                                    <span class="meta-icon">📍</span>
+                                    <span>Location: Global</span>
+                                </div>
+                                <div class="meta-item">
+                                    <span class="meta-icon">📷</span>
+                                    <span>Primary Gear: Sony A1 + 600mm f/4 GM (1/3200s)</span>
+                                </div>
+                            </div>
+
+                            <a href="gallery.html?category=birds" class="btn btn-outline hover-target">View Gallery</a>
+                        </div>
                     </div>
                     <div class="port-images">
-                        <img src="image/birds.webp" class="fade-up" alt="Bird flying">
-                        <img src="image/birds2.webp" class="fade-up delay-1" alt="Bird perched">
+                        <img src="image/birds.webp" class="fade-up stagger-item" alt="Bird flying">
+                        <img src="image/birds1.webp" class="fade-up delay-1 stagger-item" alt="Bird perched">
+                        <img src="image/birds2.webp" class="fade-up stagger-item" alt="Songbird">
+                        <img src="image/birds of prey.webp" class="fade-up delay-1 stagger-item" alt="Raptor">
                     </div>
                 </div>
             </div>
@@ -140,13 +202,29 @@
             <div class="container">
                 <div class="port-grid">
                     <div class="port-text fade-right">
-                        <h2 class="section-title">Into the <span class="text-gold">Deep</span></h2>
-                        <p>Exploring the alien worlds beneath the waves. This collection focuses on the majestic movement of marine life in their silent blue realm.</p>
-                        <a href="gallery.html?cat=marine" class="btn btn-outline hover-target" style="margin-top: 20px;">View Full Series</a>
+                        <div class="cat-info glass-panel">
+                            <h3>Into the Deep</h3>
+                            <p>Exploring the alien worlds beneath the waves. This collection focuses on the majestic movement of marine life in their silent blue realm, bringing awareness to fragile coral ecosystems.</p>
+                            
+                            <div class="meta-details">
+                                <div class="meta-item">
+                                    <span class="meta-icon">📍</span>
+                                    <span>Location: Great Barrier Reef & Maldives</span>
+                                </div>
+                                <div class="meta-item">
+                                    <span class="meta-icon">📷</span>
+                                    <span>Primary Gear: Sony A1 + 16-35mm f/2.8 in Nauticam Housing</span>
+                                </div>
+                            </div>
+
+                            <a href="gallery.html?category=marine" class="btn btn-outline hover-target">View Gallery</a>
+                        </div>
                     </div>
                     <div class="port-images">
-                        <img src="image/marine life.webp" class="fade-up" alt="Marine life underwater">
-                        <img src="image/marine life1.webp" class="fade-up delay-1" alt="Fish swimming">
+                        <img src="image/marine life.webp" class="fade-up stagger-item" alt="Marine life underwater">
+                        <img src="image/marine life1.webp" class="fade-up delay-1 stagger-item" alt="Fish swimming">
+                        <img src="image/marine life2.webp" class="fade-up stagger-item" alt="Coral reef">
+                        <img src="image/marine life.webp" class="fade-up delay-1 stagger-item" alt="Marine life">
                     </div>
                 </div>
             </div>
@@ -155,18 +233,30 @@
         <section id="macro" class="portfolio-section bg-alt">
             <div class="container">
                 <div class="port-grid reverse">
-                    <div class="port-text fade-right">
-                        <h2 class="section-title">The Micro <span class="text-gold">World</span></h2>
+                    <div class="port-text fade-left">
                         <div class="cat-info glass-panel">
-                    <h3>The Hidden World</h3>
-                    <p>Wildlife photography isn't always about the biggest animals. The macro world holds wonders that often go unnoticed by the naked eye. Through specialized macro lenses, we bring to light the intricate textures, brilliant colors, and bizarre adaptations of insects, amphibians, and reptiles. This collection challenges the perspective of scale.</p>
-                    <p style="margin-top: 15px; font-size: 0.9rem; color: var(--accent-gold);">Shot using specialized 1:1 macro photography techniques.</p>
-                    <a href="gallery.html?cat=macro" class="btn btn-outline" style="margin-top: 20px;">View Full Gallery</a>
-                </div>
+                            <h3>The Micro World</h3>
+                            <p>The macro world holds wonders that often go unnoticed by the naked eye. Through specialized macro lenses, we bring to light the intricate textures, brilliant colors, and bizarre adaptations of insects and flora.</p>
+                            
+                            <div class="meta-details">
+                                <div class="meta-item">
+                                    <span class="meta-icon">📍</span>
+                                    <span>Location: Costa Rica & Amazon</span>
+                                </div>
+                                <div class="meta-item">
+                                    <span class="meta-icon">📷</span>
+                                    <span>Primary Gear: Sony A1 + 90mm Macro G OSS</span>
+                                </div>
+                            </div>
+
+                            <a href="gallery.html?category=macro" class="btn btn-outline hover-target">View Gallery</a>
+                        </div>
                     </div>
                     <div class="port-images">
-                        <img src="image/macro wildlife.webp" class="fade-up" alt="Macro insect">
-                        <img src="image/macro wildlife1.webp" class="fade-up delay-1" alt="Macro detail">
+                        <img src="image/macro wildlife.webp" class="fade-up stagger-item" alt="Macro insect">
+                        <img src="image/macro wildlife1.webp" class="fade-up delay-1 stagger-item" alt="Macro detail">
+                        <img src="image/macro wildlife2.webp" class="fade-up stagger-item" alt="Macro leaf">
+                        <img src="image/macro wildlife.webp" class="fade-up delay-1 stagger-item" alt="Macro texture">
                     </div>
                 </div>
             </div>
@@ -176,13 +266,29 @@
             <div class="container">
                 <div class="port-grid">
                     <div class="port-text fade-right">
-                        <h2 class="section-title">Monochrome <span class="text-gold">Drama</span></h2>
-                        <p>Stripping away color forces the viewer to focus on light, shadow, texture, and emotion. The Black & White collection emphasizes the raw essence of wildlife.</p>
-                        <a href="gallery.html?cat=bw" class="btn btn-outline hover-target" style="margin-top: 20px;">View Full Series</a>
+                        <div class="cat-info glass-panel">
+                            <h3>Monochrome Drama</h3>
+                            <p>Stripping away color forces the viewer to focus on light, shadow, texture, and emotion. The Black & White collection emphasizes the raw, timeless essence of wildlife.</p>
+                            
+                            <div class="meta-details">
+                                <div class="meta-item">
+                                    <span class="meta-icon">📍</span>
+                                    <span>Location: Global</span>
+                                </div>
+                                <div class="meta-item">
+                                    <span class="meta-icon">📷</span>
+                                    <span>Post-Processing: Premium Silver Efex</span>
+                                </div>
+                            </div>
+
+                            <a href="gallery.html?category=bw" class="btn btn-outline hover-target">View Gallery</a>
+                        </div>
                     </div>
                     <div class="port-images">
-                        <img src="image/black & white.webp" class="fade-up" alt="Black and white animal">
-                        <img src="image/black & white1.webp" class="fade-up delay-1" alt="Black and white portrait">
+                        <img src="image/black & white.webp" class="fade-up stagger-item" alt="Black and white animal">
+                        <img src="image/black & white1.webp" class="fade-up delay-1 stagger-item" alt="Black and white portrait">
+                        <img src="image/black & white2.webp" class="fade-up stagger-item" alt="Monochrome shot">
+                        <img src="image/black & white.webp" class="fade-up delay-1 stagger-item" alt="Monochrome">
                     </div>
                 </div>
             </div>
@@ -198,7 +304,7 @@
                     <a href="index.html" class="footer-brand">
                         <img src="stackly-logo.webp" alt="Stackly Logo">
                     </a>
-                    <p class="footer-desc">Premium wildlife photography capturing the untamed beauty of nature.</p>
+                    <p class="footer-desc">Premium wildlife photography capturing the untamed beauty of nature through cinematic storytelling.</p>
                 </div>
                 <div class="footer-col">
                     <h4 class="footer-title">Explore</h4>
@@ -225,7 +331,7 @@
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2026 Stackly Wildlife Photography. All Rights Reserved.</p>
-                <div style="display: flex; gap: 16px;">
+                <div style="display: flex; gap: 24px;">
                     <a href="404.html">Privacy Policy</a>
                     <a href="404.html">Terms of Service</a>
                 </div>
@@ -236,5 +342,21 @@
     <!-- Scripts -->
     <script src="js/main.js"></script>
     <script src="js/animations.js"></script>
+    <script>
+        // Smooth scrolling for category links
+        document.querySelectorAll('.cat-links a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                const navHeight = document.querySelector('.category-nav').offsetHeight + document.querySelector('.navbar').offsetHeight;
+                
+                window.scrollTo({
+                    top: targetSection.offsetTop - navHeight,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
 </body>
 </html>

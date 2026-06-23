@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard | Stackly Wildlife Photography</title>
+    <title>Dashboard | Stackly Premium Wildlife Photography</title>
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,10 +26,7 @@
         
         <!-- Sidebar -->
         <aside class="sidebar" id="sidebar">
-            <div class="sidebar-header">
-                <a href="index.html">
-                    <img src="stackly-logo.webp" alt="Stackly Logo" class="sidebar-logo">
-                </a>
+            <div class="sidebar-header" style="justify-content: flex-end;">
                 <button class="close-sidebar d-mobile">&times;</button>
             </div>
             
@@ -37,16 +34,16 @@
                 <ul>
                     <li><a href="#" class="active" data-target="overview">Dashboard</a></li>
                     <li><a href="#" data-target="portfolio">Portfolio Manager</a></li>
-                    <li><a href="#" data-target="gallery">Gallery Manager</a></li>
-                    <li><a href="#" data-target="upload">Photo Uploads</a></li>
+                    <li><a href="#" data-target="gallery">Gallery Control</a></li>
+                    <li><a href="#" data-target="upload">Upload Center</a></li>
                     <li><a href="#" data-target="expeditions">Expeditions</a></li>
                     <li><a href="#" data-target="bookings">Bookings</a></li>
-                    <li><a href="#" data-target="blog">Blog Manager</a></li>
+                    <li><a href="#" data-target="blog">Journal Entries</a></li>
                     <li><a href="#" data-target="analytics">Analytics</a></li>
                     <li class="nav-divider"></li>
-                    <li><a href="#" data-target="profile">Profile</a></li>
+                    <li><a href="#" data-target="profile">Studio Profile</a></li>
                     <li><a href="#" data-target="settings">Settings</a></li>
-                    <li><a href="login.html" class="text-gold">Logout</a></li>
+                    <li><a href="login.html" class="text-gold" style="color: var(--accent-gold) !important;">Logout</a></li>
                 </ul>
             </nav>
         </aside>
@@ -55,21 +52,25 @@
         <main class="dashboard-main">
             
             <!-- Header -->
-            <header class="dashboard-header glass-panel">
+            <header class="dashboard-header" style="position: relative;">
                 <div class="header-left">
                     <button class="mobile-toggle d-mobile" id="open-sidebar">☰</button>
                     <div class="search-bar">
-                        <input type="text" placeholder="Search photos, bookings...">
+                        <input type="text" placeholder="Search collection, bookings...">
                         <button>&rarr;</button>
                     </div>
                 </div>
                 
+                <div class="header-center" style="position: absolute; left: 50%; transform: translateX(-50%);">
+                    <a href="index.html">
+                        <img src="stackly-logo.webp" alt="Stackly Logo" style="height: 24px; object-fit: contain;">
+                    </a>
+                </div>
+                
                 <div class="header-right">
-                    <button class="theme-toggle" id="theme-toggle">🌙</button>
-                    <!-- Notification bell removed as per requirements -->
                     <div class="user-profile">
                         <img src="image/1.webp" alt="User Profile">
-                        <span>Swetha</span>
+                        <span>Studio Admin</span>
                     </div>
                 </div>
             </header>
@@ -79,180 +80,277 @@
                 
                 <!-- Overview View -->
                 <div id="overview-view" class="view-section active">
-                    <div class="page-header-dash">
-                        <h2>Overview</h2>
-                        <p>Welcome back! Here's what's happening today.</p>
+                    <div class="page-header-dash" style="display: flex; justify-content: space-between; align-items: flex-end;">
+                        <div>
+                            <h2>Studio Overview</h2>
+                            <p>Welcome back. Here is your operational summary for today.</p>
+                        </div>
+                        <button class="btn btn-primary">Generate Report</button>
                     </div>
                     
                     <!-- Stats Row -->
                     <div class="stats-row">
-                        <div class="dash-stat-card glass-panel">
+                        <div class="dash-stat-card">
                             <div class="stat-icon">📸</div>
                             <div class="stat-info">
-                                <p>Total Photos</p>
-                                <h3 class="counter" data-target="10450">0</h3>
+                                <p>Total Assets</p>
+                                <h3 class="counter" data-target="12450">0</h3>
                             </div>
                         </div>
-                        <div class="dash-stat-card glass-panel">
+                        <div class="dash-stat-card">
                             <div class="stat-icon">👁️</div>
                             <div class="stat-info">
-                                <p>Monthly Views</p>
-                                <h3 class="counter" data-target="45200">0</h3>
+                                <p>Monthly Impressions</p>
+                                <h3 class="counter" data-target="85200">0</h3>
                             </div>
                         </div>
-                        <div class="dash-stat-card glass-panel">
-                            <div class="stat-icon">💼</div>
+                        <div class="dash-stat-card">
+                            <div class="stat-icon">🌍</div>
                             <div class="stat-info">
-                                <p>Active Bookings</p>
-                                <h3 class="counter" data-target="12">0</h3>
+                                <p>Active Expeditions</p>
+                                <h3 class="counter" data-target="4">0</h3>
                             </div>
                         </div>
-                        <div class="dash-stat-card glass-panel">
-                            <div class="stat-icon">💰</div>
+                        <div class="dash-stat-card">
+                            <div class="stat-icon">💎</div>
                             <div class="stat-info">
                                 <p>Revenue (MTD)</p>
-                                <h3>$<span class="counter" data-target="8450">0</span></h3>
+                                <h3>$<span class="counter" data-target="39200">0</span></h3>
                             </div>
                         </div>
                     </div>
 
                     <!-- Charts Row -->
                     <div class="charts-row">
-                        <div class="chart-container glass-panel">
-                            <h3>Analytics (Views & Engagement)</h3>
-                            <canvas id="viewsChart"></canvas>
+                        <div class="chart-container">
+                            <h3>Audience Engagement</h3>
+                            <div style="height: 300px; width: 100%;">
+                                <canvas id="viewsChart"></canvas>
+                            </div>
                         </div>
-                        <div class="chart-container glass-panel">
-                            <h3>Revenue Analytics</h3>
-                            <canvas id="revenueChart"></canvas>
+                        <div class="chart-container">
+                            <h3>Revenue Distribution</h3>
+                            <div style="height: 300px; width: 100%;">
+                                <canvas id="revenueChart"></canvas>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Portfolio Manager View (Mockup) -->
+                <!-- Portfolio Manager View -->
                 <div id="portfolio-view" class="view-section">
-                    <div class="page-header-dash">
-                        <h2>Portfolio Manager</h2>
-                        <button class="btn btn-primary">Create New Collection</button>
+                    <div class="page-header-dash" style="display: flex; justify-content: space-between;">
+                        <div>
+                            <h2>Portfolio Manager</h2>
+                            <p>Organize your featured collections and cinematic stories.</p>
+                        </div>
+                        <button class="btn btn-primary">Create Collection</button>
                     </div>
-                    <div class="glass-panel" style="padding: 30px;">
-                        <p>Select a collection to edit:</p>
+                    <div class="glass-panel" style="padding: 30px; border-radius: 12px; background: rgba(15,15,18,0.6);">
                         <div class="collection-list">
-                            <div class="collection-item">Big Cats (24 photos) <button class="btn btn-outline">Edit</button></div>
-                            <div class="collection-item">Marine Life (18 photos) <button class="btn btn-outline">Edit</button></div>
-                            <div class="collection-item">Birds of Prey (32 photos) <button class="btn btn-outline">Edit</button></div>
+                            <div class="collection-item">
+                                <div>
+                                    <h4 style="font-family: var(--font-heading); font-size: 1.2rem; color: var(--text-main);">Kings of the Savanna</h4>
+                                    <p style="color: var(--text-muted); font-size: 0.9rem;">45 High-Res Assets • Updated 2 days ago</p>
+                                </div>
+                                <button class="btn btn-outline">Manage</button>
+                            </div>
+                            <div class="collection-item">
+                                <div>
+                                    <h4 style="font-family: var(--font-heading); font-size: 1.2rem; color: var(--text-main);">Ghosts of the Jungle</h4>
+                                    <p style="color: var(--text-muted); font-size: 0.9rem;">28 High-Res Assets • Updated 1 week ago</p>
+                                </div>
+                                <button class="btn btn-outline">Manage</button>
+                            </div>
+                            <div class="collection-item">
+                                <div>
+                                    <h4 style="font-family: var(--font-heading); font-size: 1.2rem; color: var(--text-main);">Masters of the Sky</h4>
+                                    <p style="color: var(--text-muted); font-size: 0.9rem;">62 High-Res Assets • Updated 3 weeks ago</p>
+                                </div>
+                                <button class="btn btn-outline">Manage</button>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Gallery Manager View (Mockup) -->
+                <!-- Gallery Manager View -->
                 <div id="gallery-view" class="view-section">
                     <div class="page-header-dash">
-                        <h2>Gallery Manager</h2>
+                        <h2>Gallery Control</h2>
+                        <p>Manage categories, masonry layout order, and metadata.</p>
                     </div>
-                    <div class="glass-panel drag-drop-area">
-                        <p>Drag and drop images here to upload to the gallery</p>
-                        <button class="btn btn-primary" style="margin-top: 15px;">Or Browse Files</button>
+                    <div class="drag-drop-area">
+                        <div style="font-size: 3rem; color: var(--accent-gold); margin-bottom: 20px;">🖼️</div>
+                        <h3 style="color: white; margin-bottom: 10px;">Drag & Drop to Reorder</h3>
+                        <p>Or select images to edit metadata, tags, and licensing options.</p>
                     </div>
                 </div>
 
                 <!-- Uploads View -->
                 <div id="upload-view" class="view-section">
                     <div class="page-header-dash">
-                        <h2>Photo Uploads</h2>
+                        <h2>Upload Center</h2>
+                        <p>Ingest new high-resolution RAW or TIFF files.</p>
                     </div>
-                    <div class="glass-panel drag-drop-area">
-                        <p>Drag and drop high-res images here</p>
-                        <button class="btn btn-primary" style="margin-top: 15px;">Browse Files</button>
+                    <div class="drag-drop-area">
+                        <div style="font-size: 3rem; color: var(--accent-gold); margin-bottom: 20px;">☁️</div>
+                        <h3 style="color: white; margin-bottom: 10px;">Secure Upload Protocol</h3>
+                        <p>Drag files here. Supports up to 200MB per image for fine art print resolution.</p>
+                        <button class="btn btn-primary" style="margin-top: 25px;">Select Files</button>
                     </div>
                 </div>
 
                 <!-- Expeditions View -->
                 <div id="expeditions-view" class="view-section">
-                    <div class="page-header-dash">
-                        <h2>Expeditions</h2>
-                        <button class="btn btn-primary">Add New Tour</button>
+                    <div class="page-header-dash" style="display: flex; justify-content: space-between;">
+                        <div>
+                            <h2>Expedition Management</h2>
+                            <p>Control itineraries, pricing, and availability.</p>
+                        </div>
+                        <button class="btn btn-primary">Schedule New Tour</button>
                     </div>
-                    <div class="glass-panel" style="padding: 30px;">
-                        <div class="collection-item">Bandhavgarh Tiger Safari <span class="text-gold">Active</span> <button class="btn btn-outline">Edit</button></div>
-                        <div class="collection-item">Great Migration <span class="text-gold">Upcoming</span> <button class="btn btn-outline">Edit</button></div>
+                    <div class="glass-panel" style="padding: 30px; border-radius: 12px; background: rgba(15,15,18,0.6);">
+                        <div class="collection-item">
+                            <div>
+                                <h4 style="font-family: var(--font-heading); font-size: 1.2rem; color: var(--text-main);">Svalbard Polar Bear Expedition</h4>
+                                <p style="color: var(--text-muted); font-size: 0.9rem;">July 2026 • <span class="text-gold">Sold Out (12/12)</span></p>
+                            </div>
+                            <button class="btn btn-outline">View Roster</button>
+                        </div>
+                        <div class="collection-item">
+                            <div>
+                                <h4 style="font-family: var(--font-heading); font-size: 1.2rem; color: var(--text-main);">Masai Mara Great Migration</h4>
+                                <p style="color: var(--text-muted); font-size: 0.9rem;">September 2026 • <span style="color: #00cc66;">Booking Open (4/8)</span></p>
+                            </div>
+                            <button class="btn btn-outline">Manage</button>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Bookings View -->
                 <div id="bookings-view" class="view-section">
                     <div class="page-header-dash">
-                        <h2>Bookings & Inquiries</h2>
+                        <h2>Client Bookings & Inquiries</h2>
+                        <p>Manage print acquisitions and assignment requests.</p>
                     </div>
-                    <div class="glass-panel" style="padding: 30px;">
-                        <p>Recent inquiries:</p>
-                        <div class="collection-item">Jane Doe - Baja Marine Giants <span class="text-gold">Pending</span> <button class="btn btn-outline">Review</button></div>
-                        <div class="collection-item">Mark Smith - 1-on-1 Workshop <span class="text-gold">Confirmed</span> <button class="btn btn-outline">Details</button></div>
+                    <div class="glass-panel" style="padding: 30px; border-radius: 12px; background: rgba(15,15,18,0.6);">
+                        <div class="collection-item">
+                            <div>
+                                <h4 style="font-family: var(--font-heading); font-size: 1.1rem; color: var(--text-main);">Print Order: "The Ice Lord" 40x60"</h4>
+                                <p style="color: var(--text-muted); font-size: 0.9rem;">Client: Marcus V. • <span class="text-gold">Awaiting Payment Verification</span></p>
+                            </div>
+                            <button class="btn btn-primary" style="padding: 8px 20px;">Review</button>
+                        </div>
+                        <div class="collection-item">
+                            <div>
+                                <h4 style="font-family: var(--font-heading); font-size: 1.1rem; color: var(--text-main);">Commercial Assignment: BBC Earth</h4>
+                                <p style="color: var(--text-muted); font-size: 0.9rem;">Contact: Sarah Jenkins • <span style="color: #00cc66;">Contract Signed</span></p>
+                            </div>
+                            <button class="btn btn-outline">Details</button>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Blog Manager View -->
                 <div id="blog-view" class="view-section">
-                    <div class="page-header-dash">
-                        <h2>Blog Manager</h2>
-                        <button class="btn btn-primary">New Post</button>
+                    <div class="page-header-dash" style="display: flex; justify-content: space-between;">
+                        <div>
+                            <h2>Journal Entries</h2>
+                            <p>Draft and publish field notes and tutorials.</p>
+                        </div>
+                        <button class="btn btn-primary">Draft New Post</button>
                     </div>
-                    <div class="glass-panel" style="padding: 30px;">
-                        <div class="collection-item">Bengal Tiger Guide <span class="text-gold">Published</span> <button class="btn btn-outline">Edit</button></div>
-                        <div class="collection-item">Autofocus Settings <span class="text-gold">Draft</span> <button class="btn btn-outline">Edit</button></div>
+                    <div class="glass-panel" style="padding: 30px; border-radius: 12px; background: rgba(15,15,18,0.6);">
+                        <div class="collection-item">
+                            <div>
+                                <h4 style="font-family: var(--font-heading); font-size: 1.1rem; color: var(--text-main);">Eye to Eye with the Bengal Tiger</h4>
+                                <p style="color: var(--text-muted); font-size: 0.9rem;">Published: May 15, 2026 • 12.5k Views</p>
+                            </div>
+                            <button class="btn btn-outline">Edit Post</button>
+                        </div>
+                        <div class="collection-item">
+                            <div>
+                                <h4 style="font-family: var(--font-heading); font-size: 1.1rem; color: var(--text-main);">Mastering Birds in Flight Autofocus</h4>
+                                <p style="color: var(--text-muted); font-size: 0.9rem;">Status: <span class="text-gold">Draft</span> • Last Edited 2 hrs ago</p>
+                            </div>
+                            <button class="btn btn-primary" style="padding: 8px 20px;">Resume Editing</button>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Analytics View -->
                 <div id="analytics-view" class="view-section">
                     <div class="page-header-dash">
-                        <h2>Detailed Analytics</h2>
+                        <h2>Deep Analytics</h2>
+                        <p>Comprehensive data on image performance and audience demographics.</p>
                     </div>
-                    <div class="glass-panel" style="padding: 30px;">
-                        <p>Advanced metrics and reports will be displayed here.</p>
-                        <div class="chart-container" style="height: 300px; margin-top: 20px;">
-                            <canvas id="detailedChart"></canvas>
-                        </div>
+                    <div class="glass-panel" style="padding: 40px; text-align: center; border-radius: 12px; background: rgba(15,15,18,0.6); border: 1px dashed rgba(203,163,88,0.3);">
+                        <div style="font-size: 3rem; margin-bottom: 20px;">📊</div>
+                        <h3 style="color: white; margin-bottom: 10px;">Advanced Reporting Module</h3>
+                        <p style="color: var(--text-muted); max-width: 500px; margin: 0 auto;">Connects to Google Analytics 4 API in production environment to display real-time global heatmaps and acquisition channels.</p>
                     </div>
                 </div>
 
                 <!-- Profile View -->
                 <div id="profile-view" class="view-section">
                     <div class="page-header-dash">
-                        <h2>Profile Setup</h2>
+                        <h2>Studio Profile</h2>
+                        <p>Manage your public persona and agency details.</p>
                     </div>
-                    <div class="glass-panel" style="padding: 30px; max-width: 600px;">
-                        <div class="form-group" style="margin-bottom: 20px;">
-                            <label style="color:var(--text-muted);">Display Name</label>
-                            <input type="text" value="Swetha" style="width:100%; padding: 10px; background: rgba(0,0,0,0.5); color:white; border: 1px solid var(--glass-border);">
+                    <div class="glass-panel" style="padding: 40px; max-width: 700px; border-radius: 12px; background: rgba(15,15,18,0.6);">
+                        <div style="display: flex; gap: 30px; margin-bottom: 40px; align-items: center;">
+                            <img src="image/1.webp" alt="Avatar" style="width: 100px; height: 100px; border-radius: 50%; border: 2px solid var(--accent-gold); object-fit: cover;">
+                            <div>
+                                <button class="btn btn-outline" style="margin-bottom: 10px;">Change Avatar</button>
+                                <p style="color: var(--text-muted); font-size: 0.85rem;">Recommended size: 500x500px</p>
+                            </div>
                         </div>
-                        <div class="form-group" style="margin-bottom: 20px;">
-                            <label style="color:var(--text-muted);">Bio</label>
-                            <textarea rows="4" style="width:100%; padding: 10px; background: rgba(0,0,0,0.5); color:white; border: 1px solid var(--glass-border);">Wildlife photographer and conservationist.</textarea>
+                        
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px;">
+                            <div>
+                                <label style="display:block; color:var(--text-muted); margin-bottom: 8px; font-size: 0.9rem; text-transform: uppercase;">Display Name</label>
+                                <input type="text" value="Stackly Studio" style="width:100%; padding: 15px; background: rgba(0,0,0,0.5); color:white; border: 1px solid var(--glass-border); border-radius: 6px;">
+                            </div>
+                            <div>
+                                <label style="display:block; color:var(--text-muted); margin-bottom: 8px; font-size: 0.9rem; text-transform: uppercase;">Contact Email</label>
+                                <input type="email" value="studio@stackly.com" style="width:100%; padding: 15px; background: rgba(0,0,0,0.5); color:white; border: 1px solid var(--glass-border); border-radius: 6px;">
+                            </div>
                         </div>
-                        <button class="btn btn-primary">Update Profile</button>
+                        
+                        <div style="margin-bottom: 30px;">
+                            <label style="display:block; color:var(--text-muted); margin-bottom: 8px; font-size: 0.9rem; text-transform: uppercase;">Biography / Mission</label>
+                            <textarea rows="5" style="width:100%; padding: 15px; background: rgba(0,0,0,0.5); color:white; border: 1px solid var(--glass-border); border-radius: 6px; font-family: var(--font-body);">Dedicated to preserving the world's most vulnerable species through cinematic visual storytelling.</textarea>
+                        </div>
+                        <button class="btn btn-primary hover-target">Update Profile Settings</button>
                     </div>
                 </div>
 
-                <!-- Settings View (Mockup) -->
+                <!-- Settings View -->
                 <div id="settings-view" class="view-section">
                     <div class="page-header-dash">
-                        <h2>Settings</h2>
+                        <h2>System Settings</h2>
+                        <p>Configure platform preferences and security.</p>
                     </div>
-                    <div class="glass-panel" style="padding: 30px; max-width: 600px;">
-                        <div class="form-group" style="margin-bottom: 20px;">
-                            <label style="color:var(--text-muted);">Theme Settings</label>
-                            <select style="width:100%; padding: 10px; background: rgba(0,0,0,0.5); color:white; border: 1px solid var(--glass-border);">
-                                <option>Dark Cinematic (Default)</option>
-                                <option>Light Mode</option>
-                            </select>
+                    <div class="glass-panel" style="padding: 40px; max-width: 700px; border-radius: 12px; background: rgba(15,15,18,0.6);">
+                        <h3 style="color: white; margin-bottom: 20px; font-family: var(--font-heading);">Security</h3>
+                        <button class="btn btn-outline" style="margin-bottom: 40px;">Change Password</button>
+                        
+                        <h3 style="color: white; margin-bottom: 20px; font-family: var(--font-heading);">Notifications</h3>
+                        <div style="margin-bottom: 30px;">
+                            <label style="display:flex; align-items: center; gap: 10px; color:var(--text-main); margin-bottom: 15px; cursor: pointer;">
+                                <input type="checkbox" checked style="accent-color: var(--accent-gold); width: 18px; height: 18px;"> 
+                                Email alerts for new print orders
+                            </label>
+                            <label style="display:flex; align-items: center; gap: 10px; color:var(--text-main); margin-bottom: 15px; cursor: pointer;">
+                                <input type="checkbox" checked style="accent-color: var(--accent-gold); width: 18px; height: 18px;"> 
+                                Email alerts for expedition bookings
+                            </label>
+                            <label style="display:flex; align-items: center; gap: 10px; color:var(--text-main); margin-bottom: 15px; cursor: pointer;">
+                                <input type="checkbox" style="accent-color: var(--accent-gold); width: 18px; height: 18px;"> 
+                                Weekly analytics digest
+                            </label>
                         </div>
-                        <div class="form-group" style="margin-bottom: 20px;">
-                            <label style="color:var(--text-muted);">Privacy</label>
-                            <label style="display:block; margin-top:10px;"><input type="checkbox" checked> Show public profile</label>
-                            <label style="display:block; margin-top:10px;"><input type="checkbox" checked> Allow indexing</label>
-                        </div>
-                        <button class="btn btn-primary">Save Changes</button>
+                        <button class="btn btn-primary hover-target">Save Preferences</button>
                     </div>
                 </div>
 
@@ -263,5 +361,48 @@
     <!-- Scripts -->
     <script src="js/main.js"></script>
     <script src="js/dashboard.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const role = urlParams.get('role') || 'photographer';
+            
+            if (role === 'client') {
+                // Update Profile Name
+                const profileSpan = document.querySelector('.user-profile span');
+                if (profileSpan) profileSpan.textContent = 'Client User';
+                
+                // Hide Admin links
+                const adminTargets = ['portfolio', 'gallery', 'upload', 'blog', 'analytics', 'profile'];
+                document.querySelectorAll('.sidebar-nav a').forEach(link => {
+                    if (adminTargets.includes(link.getAttribute('data-target'))) {
+                        link.parentElement.style.display = 'none';
+                    }
+                });
+                
+                // Update Overview texts
+                const overviewH2 = document.querySelector('#overview-view h2');
+                if (overviewH2) overviewH2.textContent = 'My Collection';
+                
+                const overviewP = document.querySelector('#overview-view p');
+                if (overviewP) overviewP.textContent = 'Welcome back. Here is your collection summary.';
+                
+                // Update Stats text
+                const statLabels = document.querySelectorAll('.stat-info p');
+                if(statLabels.length >= 4) {
+                    statLabels[0].textContent = 'Prints Owned';
+                    document.querySelectorAll('.counter')[0].setAttribute('data-target', '3');
+                    
+                    statLabels[1].textContent = 'Active Expeditions';
+                    document.querySelectorAll('.counter')[1].setAttribute('data-target', '1');
+                    
+                    statLabels[2].textContent = 'Pending Orders';
+                    document.querySelectorAll('.counter')[2].setAttribute('data-target', '0');
+                    
+                    statLabels[3].textContent = 'Total Invested';
+                }
+            }
+        });
+    </script>
 </body>
 </html>

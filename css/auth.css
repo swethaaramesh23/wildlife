@@ -1,10 +1,10 @@
-/* Professional Split Layout Auth Pages */
+/* Premium Split Layout Auth Pages */
 
 .auth-page {
     margin: 0;
     padding: 0;
     height: 100vh;
-    background: #050505;
+    background: var(--bg-dark);
     overflow: hidden;
     font-family: var(--font-body);
 }
@@ -23,17 +23,14 @@
 .auth-image::after {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to right, rgba(5,5,5,0) 0%, rgba(5,5,5,0.8) 100%);
+    inset: 0;
+    background: linear-gradient(135deg, rgba(7,7,8,0.2) 0%, var(--bg-dark) 100%);
 }
 
 @media (min-width: 900px) {
     .auth-image {
         display: block;
-        flex: 1;
+        flex: 1.2;
         background-size: cover;
         background-position: center;
     }
@@ -45,26 +42,27 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 40px 20px;
-    background: #050505;
+    padding: 120px 40px 60px 40px; /* Added top padding to prevent header overlap */
+    background: var(--bg-dark);
     position: relative;
     overflow-y: auto;
 }
 
 .auth-container {
     width: 100%;
-    max-width: 420px;
-    animation: fadeIn 0.6s ease-out forwards;
+    max-width: 480px;
+    background: rgba(15, 15, 18, 0.6);
+    backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--glass-border);
+    padding: 50px;
+    border-radius: 16px;
+    box-shadow: var(--shadow-premium);
+    animation: fadeIn 0.8s ease-out forwards;
 }
 
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
-}
-
-.auth-logo {
-    height: 45px;
-    margin-bottom: 25px;
 }
 
 .auth-header {
@@ -74,28 +72,30 @@
 
 .auth-header h2 {
     font-family: var(--font-heading);
-    font-size: 2.2rem;
-    color: white;
-    margin-bottom: 10px;
+    font-size: 2.4rem;
+    color: var(--text-main);
+    margin-bottom: 12px;
 }
 
 .auth-header p {
     color: var(--text-muted);
-    font-size: 1rem;
+    font-size: 1.05rem;
+    line-height: 1.6;
 }
 
 /* Role Selector */
 .role-selector {
-    margin-bottom: 30px;
+    margin-bottom: 35px;
 }
 
-.role-selector label {
+.role-selector label.group-label {
     display: block;
-    margin-bottom: 12px;
+    margin-bottom: 15px;
     color: var(--text-muted);
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
+    font-weight: 500;
 }
 
 .role-options {
@@ -119,19 +119,21 @@
 .role-btn {
     display: block;
     text-align: center;
-    padding: 12px;
-    background: #111;
-    border: 1px solid #333;
-    border-radius: 4px;
+    padding: 15px;
+    background: rgba(7, 7, 8, 0.8);
+    border: 1px solid var(--glass-border);
+    border-radius: 8px;
     color: var(--text-muted);
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     transition: var(--transition-smooth);
+    font-weight: 500;
 }
 
 .role-label input:checked ~ .role-btn {
-    background: rgba(212, 175, 55, 0.1);
+    background: rgba(203, 163, 88, 0.1);
     border-color: var(--accent-gold);
     color: var(--accent-gold);
+    box-shadow: 0 0 15px rgba(203, 163, 88, 0.1);
 }
 
 /* Animated Inputs */
@@ -142,20 +144,21 @@
 
 .input-group {
     position: relative;
-    margin-bottom: 30px;
+    margin-bottom: 35px;
     width: 100%;
 }
 
 .input-group input {
     width: 100%;
-    padding: 12px 0 10px 0;
+    padding: 15px 0 10px 0;
     font-size: 1.05rem;
     color: white;
     border: none;
-    border-bottom: 1px solid #444;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     outline: none;
     background: transparent;
     transition: 0.3s ease;
+    font-family: var(--font-body);
 }
 
 .input-group input:focus {
@@ -164,19 +167,48 @@
 
 .input-group label {
     position: absolute;
-    top: 12px;
+    top: 15px;
     left: 0;
-    color: #888;
+    color: var(--text-muted);
     font-size: 1.05rem;
-    transition: 0.2s ease all;
+    transition: 0.3s ease all;
     pointer-events: none;
 }
 
 .input-group input:focus ~ label,
-.input-group input:valid ~ label {
+.input-group input:valid ~ label,
+.input-group input.has-val ~ label {
     top: -15px;
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     color: var(--accent-gold);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Password Strength Meter */
+.pwd-strength-container {
+    margin-top: -20px;
+    margin-bottom: 30px;
+    display: none;
+}
+
+.pwd-strength-bar {
+    height: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+    overflow: hidden;
+    margin-bottom: 8px;
+}
+
+.pwd-strength-fill {
+    height: 100%;
+    width: 0;
+    transition: all 0.3s ease;
+}
+
+.pwd-strength-text {
+    font-size: 0.8rem;
+    color: var(--text-muted);
 }
 
 /* Auth Actions */
@@ -184,16 +216,22 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 35px;
+    margin-bottom: 40px;
 }
 
 .remember-me {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
     color: var(--text-muted);
     font-size: 0.95rem;
     cursor: pointer;
+}
+
+.remember-me input {
+    accent-color: var(--accent-gold);
+    width: 16px;
+    height: 16px;
 }
 
 .forgot-pwd {
@@ -210,16 +248,19 @@
 .btn-full {
     width: 100%;
     text-align: center;
-    padding: 16px;
-    font-size: 1rem;
-    border-radius: 4px;
+    padding: 18px;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    letter-spacing: 1px;
 }
 
 .auth-footer {
     margin-top: 40px;
-    font-size: 0.95rem;
+    font-size: 1rem;
     color: var(--text-muted);
     text-align: center;
+    padding-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .auth-footer a {
@@ -230,4 +271,10 @@
 
 .auth-footer a:hover {
     text-decoration: underline;
+}
+
+@media (max-width: 576px) {
+    .auth-form-side { padding: 40px 20px; }
+    .auth-container { padding: 30px 25px; border: none; background: transparent; box-shadow: none; }
+    .form-row { flex-direction: column; gap: 0; }
 }

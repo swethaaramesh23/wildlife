@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign Up | Stackly Wildlife Photography</title>
+    <title>Sign Up | Stackly Premium Wildlife Photography</title>
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,13 +20,10 @@
     <div class="cursor-outline"></div>
 
     <!-- Navigation -->
-    <nav class="navbar" style="position: absolute; top: 0; width: 100%; z-index: 100; background: transparent; border: none; backdrop-filter: none;">
+    <nav class="navbar">
         <a href="index.html" class="nav-brand">
             <img src="stackly-logo.webp" alt="Stackly Logo">
         </a>
-        <div class="nav-actions">
-            <a href="login.html" class="btn btn-outline hover-target">Sign In</a>
-        </div>
         <button class="mobile-toggle">☰</button>
     </nav>
 
@@ -38,51 +35,58 @@
         <div class="auth-form-side">
             <div class="auth-container">
                 <div class="auth-header">
-                    <h2>Create Account</h2>
-                    <p>Join the Stackly community today.</p>
+                    <h2>Exclusive Access</h2>
+                    <p>Apply for an account to acquire limited edition prints and book private expeditions.</p>
                 </div>
                 
                 <form action="dashboard.html" class="auth-form">
                     
                     <div class="form-row">
                         <div class="input-group">
-                            <input type="text" id="fname" required>
+                            <input type="text" id="fname" required autocomplete="given-name">
                             <label for="fname">First Name</label>
                         </div>
                         <div class="input-group">
-                            <input type="text" id="lname" required>
+                            <input type="text" id="lname" required autocomplete="family-name">
                             <label for="lname">Last Name</label>
                         </div>
                     </div>
 
                     <div class="input-group">
-                        <input type="email" id="email" required>
+                        <input type="email" id="email" required autocomplete="email">
                         <label for="email">Email Address</label>
                     </div>
                     
                     <div class="input-group">
-                        <input type="password" id="password" required>
-                        <label for="password">Password</label>
+                        <input type="password" id="password" required autocomplete="new-password">
+                        <label for="password">Create Password</label>
+                    </div>
+
+                    <div class="pwd-strength-container">
+                        <div class="pwd-strength-bar">
+                            <div class="pwd-strength-fill"></div>
+                        </div>
+                        <div class="pwd-strength-text">Password Strength</div>
                     </div>
 
                     <div class="input-group">
-                        <input type="password" id="confirm_password" required>
+                        <input type="password" id="confirm_password" required autocomplete="new-password">
                         <label for="confirm_password">Confirm Password</label>
                     </div>
                     
-                    <div class="auth-actions" style="margin-bottom: 25px;">
-                        <label class="remember-me hover-target" style="font-size: 0.85rem;">
-                            <input type="checkbox" required> I agree to the <a href="404.html" style="color:var(--accent-gold); text-decoration:none;">Terms</a> & <a href="404.html" style="color:var(--accent-gold); text-decoration:none;">Privacy</a>
+                    <div class="auth-actions" style="margin-bottom: 30px;">
+                        <label class="remember-me hover-target" style="font-size: 0.9rem;">
+                            <input type="checkbox" required> I agree to the <a href="404.html" style="color:var(--accent-gold); text-decoration:none;">Terms of Service</a> & <a href="404.html" style="color:var(--accent-gold); text-decoration:none;">Privacy Policy</a>
                         </label>
                     </div>
                     
-                    <button type="submit" class="btn btn-primary btn-full hover-target">Register Account</button>
+                    <button type="submit" class="btn btn-primary btn-full hover-target">Submit Application</button>
                 </form>
                 
                 <div class="auth-footer">
-                    <p>Already have an account? <a href="login.html" class="hover-target">Sign in</a></p>
-                    <div style="margin-top: 25px;">
-                        <a href="index.html" class="hover-target" style="color: #666; font-size: 0.9rem;">&larr; Back to Home</a>
+                    <p>Already a collector? <a href="login.html" class="hover-target">Sign in here</a></p>
+                    <div style="margin-top: 30px;">
+                        <a href="index.html" class="hover-target" style="color: var(--text-muted); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;">&larr; Return to Gallery</a>
                     </div>
                 </div>
             </div>
@@ -91,5 +95,6 @@
 
     <!-- Scripts -->
     <script src="js/main.js"></script>
+    <script src="js/auth.js"></script>
 </body>
 </html>

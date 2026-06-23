@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact | Stackly Wildlife Photography</title>
+    <title>Contact | Stackly Premium Wildlife Photography</title>
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -46,66 +46,98 @@
     <!-- Contact Header -->
     <section class="contact-header">
         <div class="container text-center">
-            <h1 class="page-title reveal-text">Get In <span class="text-gold">Touch</span></h1>
-            <p class="subtitle reveal-text delay-1" style="margin: 0 auto;">Inquiries for prints, assignments, or expeditions.</p>
+            <span class="section-subtitle reveal-text">Connect</span>
+            <h1 class="page-title reveal-text delay-1">Get In <span class="text-gold">Touch</span></h1>
+            <p class="subtitle reveal-text delay-2" style="margin: 0 auto; max-width: 600px;">Direct inquiries for fine art print acquisitions, commercial assignments, or joining our exclusive expeditions.</p>
         </div>
     </section>
 
     <!-- Contact Section -->
     <section class="section contact-section">
         <div class="container">
-            <div class="contact-grid">
+            <div class="contact-grid stagger-container">
                 
                 <!-- Contact Info -->
                 <div class="contact-info fade-right">
-                    <div class="info-block glass-panel">
-                        <h3>Headquarters</h3>
+                    <div class="info-block stagger-item">
+                        <h3>Studio Headquarters</h3>
                         <p>124 Safari Way<br>Nairobi, Kenya 00100</p>
                     </div>
-                    <div class="info-block glass-panel">
-                        <h3>Direct Contact</h3>
+                    <div class="info-block stagger-item">
+                        <h3>Direct Communication</h3>
                         <p>Email: studio@stackly.com<br>Phone: +254 700 123 456</p>
                     </div>
-                    <div class="info-block glass-panel">
+                    <div class="info-block stagger-item">
                         <h3>Social Connect</h3>
+                        <p style="margin-bottom: 10px;">Follow our daily dispatches from the field.</p>
                         <div class="social-links">
-                            <a href="404.html" class="hover-target">IG</a>
-                            <a href="404.html" class="hover-target">FB</a>
-                            <a href="404.html" class="hover-target">TW</a>
-                            <a href="404.html" class="hover-target">YT</a>
+                            <a href="404.html" class="hover-target" title="Instagram">IG</a>
+                            <a href="404.html" class="hover-target" title="Facebook">FB</a>
+                            <a href="404.html" class="hover-target" title="Twitter/X">X</a>
+                            <a href="404.html" class="hover-target" title="YouTube">YT</a>
                         </div>
                     </div>
                 </div>
 
                 <!-- Contact Form -->
-                <div class="contact-form-wrapper glass-panel fade-left">
+                <div class="contact-form-wrapper fade-left">
+                    <h2>Send a Message</h2>
                     <form class="custom-form">
                         <div class="form-row">
                             <div class="form-group">
                                 <label>Your Name</label>
-                                <input type="text" placeholder="Jane Doe" required>
+                                <input type="text" placeholder="John Doe" required>
                             </div>
                             <div class="form-group">
                                 <label>Your Email</label>
-                                <input type="email" placeholder="jane@example.com" required>
+                                <input type="email" placeholder="john@example.com" required>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label>Subject</label>
+                            <label>Inquiry Type</label>
                             <select required>
                                 <option value="" disabled selected>Select an option</option>
-                                <option value="print">Print Purchase Inquiry</option>
+                                <option value="print">Fine Art Print Acquisition</option>
                                 <option value="assignment">Commercial Assignment</option>
-                                <option value="expedition">Expedition Details</option>
-                                <option value="other">Other</option>
+                                <option value="expedition">Expedition Booking</option>
+                                <option value="licensing">Image Licensing</option>
+                                <option value="other">General Inquiry</option>
                             </select>
                         </div>
                         <div class="form-group">
                             <label>Message</label>
-                            <textarea rows="6" placeholder="How can I help you?" required></textarea>
+                            <textarea rows="6" placeholder="How can we collaborate?" required></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary hover-target">Send Message</button>
+                        <button type="submit" class="btn btn-primary hover-target" style="width: 100%; padding: 20px;">Send Message</button>
                     </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section" style="background: rgba(15, 15, 18, 0.4); border-top: 1px solid var(--glass-border);">
+        <div class="container">
+            <div class="section-header text-center fade-up">
+                <span class="section-subtitle">Common Questions</span>
+                <h2 class="section-title">Frequently Asked <span class="text-gold">Questions</span></h2>
+            </div>
+            <div class="faq-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; max-width: 900px; margin: 0 auto;">
+                <div class="faq-item fade-up">
+                    <h4 style="color: var(--accent-gold); margin-bottom: 10px; font-size: 1.2rem;">Do you ship prints internationally?</h4>
+                    <p style="color: var(--text-muted); line-height: 1.6;">Yes, all limited edition prints are securely packaged and shipped worldwide with full insurance and tracking.</p>
+                </div>
+                <div class="faq-item fade-up delay-1">
+                    <h4 style="color: var(--accent-gold); margin-bottom: 10px; font-size: 1.2rem;">Can I license an image for commercial use?</h4>
+                    <p style="color: var(--text-muted); line-height: 1.6;">Absolutely. Please select "Image Licensing" in the contact form above and specify the intended usage and duration.</p>
+                </div>
+                <div class="faq-item fade-up delay-2">
+                    <h4 style="color: var(--accent-gold); margin-bottom: 10px; font-size: 1.2rem;">What is included in an expedition?</h4>
+                    <p style="color: var(--text-muted); line-height: 1.6;">Our expeditions include luxury accommodations, expert guiding, specialized transport, and 1-on-1 photography mentoring.</p>
+                </div>
+                <div class="faq-item fade-up delay-3">
+                    <h4 style="color: var(--accent-gold); margin-bottom: 10px; font-size: 1.2rem;">Do you shoot weddings or events?</h4>
+                    <p style="color: var(--text-muted); line-height: 1.6;">No, Stackly Studio is exclusively dedicated to wildlife and nature conservation photography.</p>
                 </div>
             </div>
         </div>
@@ -113,8 +145,8 @@
 
     <!-- Interactive Map Placeholder -->
     <section class="map-section fade-up">
-        <!-- We use an iframe for a real map feel (dark mode styled google maps is ideal, using standard embed here) -->
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127641.52766869687!2d36.73973347076216!3d-1.303193375753086!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f1172d84d49a7%3A0xf7cf0254b297924c!2sNairobi%2C%20Kenya!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus" width="100%" height="500" style="border:0; filter: invert(90%) hue-rotate(180deg);" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <div class="map-overlay"></div>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127641.52766869687!2d36.73973347076216!3d-1.303193375753086!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f1172d84d49a7%3A0xf7cf0254b297924c!2sNairobi%2C%20Kenya!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus" width="100%" height="600" style="border:0; filter: grayscale(100%) invert(90%) hue-rotate(180deg) contrast(1.2);" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </section>
 
     <!-- Footer -->
@@ -125,7 +157,7 @@
                     <a href="index.html" class="footer-brand">
                         <img src="stackly-logo.webp" alt="Stackly Logo">
                     </a>
-                    <p class="footer-desc">Premium wildlife photography capturing the untamed beauty of nature.</p>
+                    <p class="footer-desc">Premium wildlife photography capturing the untamed beauty of nature through cinematic storytelling.</p>
                 </div>
                 <div class="footer-col">
                     <h4 class="footer-title">Explore</h4>
@@ -147,12 +179,12 @@
                 </div>
                 <div class="footer-col">
                     <h4 class="footer-title">Our Office</h4>
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127641.52766869687!2d36.73973347076216!3d-1.303193375753086!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f1172d84d49a7%3A0xf7cf0254b297924c!2sNairobi%2C%20Kenya!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus" width="100%" height="120" style="border:0; border-radius: 8px; filter: invert(90%) hue-rotate(180deg);" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 15px;">Nairobi, Kenya</p>
                 </div>
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2026 Stackly Wildlife Photography. All Rights Reserved.</p>
-                <div style="display: flex; gap: 16px;">
+                <div style="display: flex; gap: 24px;">
                     <a href="404.html">Privacy Policy</a>
                     <a href="404.html">Terms of Service</a>
                 </div>

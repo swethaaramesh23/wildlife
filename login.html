@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login | Stackly Wildlife Photography</title>
+    <title>Login | Stackly Premium Wildlife Photography</title>
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,13 +20,10 @@
     <div class="cursor-outline"></div>
 
     <!-- Navigation -->
-    <nav class="navbar" style="position: absolute; top: 0; width: 100%; z-index: 100; background: transparent; border: none; backdrop-filter: none;">
+    <nav class="navbar">
         <a href="index.html" class="nav-brand">
             <img src="stackly-logo.webp" alt="Stackly Logo">
         </a>
-        <div class="nav-actions">
-            <a href="signup.html" class="btn btn-outline hover-target">Sign Up</a>
-        </div>
         <button class="mobile-toggle">☰</button>
     </nav>
 
@@ -39,32 +36,32 @@
             <div class="auth-container">
                 <div class="auth-header">
                     <h2>Welcome Back</h2>
-                    <p>Enter your details to access your dashboard.</p>
+                    <p>Enter your credentials to access your collection.</p>
                 </div>
                 
                 <form action="dashboard.html" class="auth-form">
                     
                     <div class="form-group role-selector">
-                        <label>Sign in as</label>
+                        <label class="group-label">Sign in as</label>
                         <div class="role-options">
                             <label class="role-label">
                                 <input type="radio" name="role" value="client" checked>
-                                <span class="role-btn hover-target">Client / Buyer</span>
+                                <span class="role-btn hover-target">Collector / Client</span>
                             </label>
                             <label class="role-label">
                                 <input type="radio" name="role" value="photographer">
-                                <span class="role-btn hover-target">Admin</span>
+                                <span class="role-btn hover-target">Artist / Admin</span>
                             </label>
                         </div>
                     </div>
 
                     <div class="input-group">
-                        <input type="email" id="email" required>
+                        <input type="email" id="email" required autocomplete="email">
                         <label for="email">Email Address</label>
                     </div>
                     
                     <div class="input-group">
-                        <input type="password" id="password" required>
+                        <input type="password" id="password" required autocomplete="current-password">
                         <label for="password">Password</label>
                     </div>
                     
@@ -75,13 +72,13 @@
                         <a href="404.html" class="forgot-pwd hover-target">Forgot Password?</a>
                     </div>
                     
-                    <button type="submit" class="btn btn-primary btn-full hover-target">Sign In to Dashboard</button>
+                    <button type="submit" class="btn btn-primary btn-full hover-target">Sign In to Portfolio</button>
                 </form>
                 
                 <div class="auth-footer">
-                    <p>Don't have an account? <a href="signup.html" class="hover-target">Create an account</a></p>
-                    <div style="margin-top: 25px;">
-                        <a href="index.html" class="hover-target" style="color: #666; font-size: 0.9rem;">&larr; Back to Home</a>
+                    <p>Don't have an account? <a href="signup.html" class="hover-target">Apply for access</a></p>
+                    <div style="margin-top: 30px;">
+                        <a href="index.html" class="hover-target" style="color: var(--text-muted); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;">&larr; Return to Gallery</a>
                     </div>
                 </div>
             </div>
@@ -90,5 +87,6 @@
 
     <!-- Scripts -->
     <script src="js/main.js"></script>
+    <script src="js/auth.js"></script>
 </body>
 </html>

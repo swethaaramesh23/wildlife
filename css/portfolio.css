@@ -1,0 +1,112 @@
+/* Portfolio Specific Styles */
+
+.page-header {
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.page-title {
+    font-size: clamp(3rem, 5vw, 5rem);
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+/* Category Navigation */
+.category-nav {
+    background: rgba(10, 10, 10, 0.9);
+    border-bottom: 1px solid var(--glass-border);
+    position: sticky;
+    top: 88px; /* Below navbar */
+    z-index: 100;
+    backdrop-filter: none;
+}
+
+.cat-links {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 20px 0;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+.cat-links a {
+    color: var(--text-muted);
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+}
+
+.cat-links a:hover {
+    color: var(--accent-gold);
+}
+
+/* Portfolio Sections */
+.portfolio-section {
+    padding: 120px 0;
+}
+
+.portfolio-section.bg-alt {
+    background: rgba(20, 20, 20, 0.4);
+}
+
+.port-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.port-grid.reverse {
+    grid-template-columns: 1.5fr 1fr;
+}
+
+.port-grid.reverse .port-text {
+    order: 2;
+}
+
+.port-grid.reverse .port-images {
+    order: 1;
+}
+
+.port-text p {
+    color: var(--text-muted);
+    line-height: 1.8;
+    font-size: 1.1rem;
+}
+
+.port-images {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.port-images img {
+    width: 100%;
+    border-radius: 8px;
+    transition: transform 0.5s ease;
+}
+
+.port-images img:hover {
+    transform: scale(1.02);
+}
+
+.port-images img:nth-child(2) {
+    margin-top: 40px;
+}
+
+@media (max-width: 992px) {
+    .port-grid, .port-grid.reverse {
+        grid-template-columns: 1fr;
+    }
+    
+    .port-grid.reverse .port-text { order: 1; }
+    .port-grid.reverse .port-images { order: 2; }
+    
+    .category-nav { top: 72px; }
+}

@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stackly | Premium Wildlife Photography</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/home.css">
+    
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+</head>
+<body>
+    <!-- Custom Cursor -->
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <a href="index.html" class="nav-brand">
+            <img src="stackly-logo.webp" alt="Stackly Logo">
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="expeditions.html">Expeditions</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="nav-actions">
+            <a href="login.html" class="btn btn-outline hover-target">Login</a>
+        </div>
+        <button class="mobile-toggle">☰</button>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero" id="hero">
+        <div class="hero-bg parallax-bg" style="background-image: url('image/lion.webp');"></div>
+        <div class="hero-overlay"></div>
+        
+        <!-- Silhouettes -->
+        <div class="silhouettes">
+            <img src="image/birds.webp" class="silhouette s1" alt="">
+        </div>
+
+        <div class="container hero-content">
+            <h1 class="hero-title reveal-text">Capturing Nature's<br><span class="text-gold">Untamed Beauty</span></h1>
+            <p class="subtitle reveal-text delay-1">Award-winning wildlife photography from the world's most extraordinary landscapes.</p>
+            <div class="hero-buttons reveal-text delay-2">
+                <a href="gallery.html" class="btn btn-primary hover-target">Explore Gallery</a>
+                <a href="portfolio.html" class="btn btn-outline hover-target">View Portfolio</a>
+            </div>
+        </div>
+        
+        <div class="scroll-indicator">
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+            <span>Scroll to explore</span>
+        </div>
+    </header>
+
+    <!-- Philosophy Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header text-center fade-up">
+                <h2 class="section-title">Our Philosophy</h2>
+                <p class="section-subtitle">Beyond the Shutter</p>
+            </div>
+            <div style="max-width: 800px; margin: 0 auto; text-align: center; color: var(--text-muted); font-size: 1.1rem; line-height: 1.8;" class="fade-up">
+                <p style="margin-bottom: 20px;">At Stackly, we believe that wildlife photography is not merely about capturing an animal in its habitat; it is about telling a profound story of survival, beauty, and the delicate balance of our ecosystem. Every image we capture is a testament to the raw, untamed spirit of nature that surrounds us.</p>
+                <p style="margin-bottom: 20px;">Our dedicated team spends countless hours in the field, observing animal behavior, studying light patterns, and waiting patiently for that singular, perfect moment. We prioritize ethical photography—never baiting, never disturbing, and always respecting the boundaries of the incredible subjects we photograph.</p>
+                <p>Through our lens, we hope to inspire a deep connection with the natural world. We believe that visual storytelling is a powerful tool for conservation. By sharing the majesty of these creatures, we aim to ignite a passion for protecting their habitats for generations to come. Join us on this visual journey and witness the wild as you've never seen it before.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Collections -->
+    <section class="section glass-bg" id="collections">
+        <div class="container">
+            <h2 class="section-title text-center fade-up">Featured <span class="text-gold">Collections</span></h2>
+            
+            <div class="collection-grid">
+                <a href="portfolio.html#big-cats" class="collection-card fade-up">
+                    <div class="card-img-wrapper">
+                        <img src="image/tiger.webp" alt="Big Cats">
+                    </div>
+                    <div class="card-content">
+                        <h3>Big Cats</h3>
+                        <p>Explore Collection &rarr;</p>
+                    </div>
+                </a>
+                
+                <a href="portfolio.html#birds-of-prey" class="collection-card fade-up delay-1">
+                    <div class="card-img-wrapper">
+                        <img src="image/birds1.webp" alt="Birds of Prey">
+                    </div>
+                    <div class="card-content">
+                        <h3>Birds of Prey</h3>
+                        <p>Explore Collection &rarr;</p>
+                    </div>
+                </a>
+                
+                <a href="portfolio.html#african" class="collection-card fade-up delay-2">
+                    <div class="card-img-wrapper">
+                        <img src="image/african wildlife.webp" alt="African Wildlife">
+                    </div>
+                    <div class="card-content">
+                        <h3>African Wildlife</h3>
+                        <p>Explore Collection &rarr;</p>
+                    </div>
+                </a>
+                
+                <a href="portfolio.html#asian" class="collection-card fade-up">
+                    <div class="card-img-wrapper">
+                        <img src="image/asian wildlife.webp" alt="Asian Wildlife">
+                    </div>
+                    <div class="card-content">
+                        <h3>Asian Wildlife</h3>
+                        <p>Explore Collection &rarr;</p>
+                    </div>
+                </a>
+                
+                <a href="portfolio.html#marine" class="collection-card fade-up delay-1">
+                    <div class="card-img-wrapper">
+                        <img src="image/marine life.webp" alt="Marine Life">
+                    </div>
+                    <div class="card-content">
+                        <h3>Marine Life</h3>
+                        <p>Explore Collection &rarr;</p>
+                    </div>
+                </a>
+                
+                <a href="portfolio.html#macro" class="collection-card fade-up delay-2">
+                    <div class="card-img-wrapper">
+                        <img src="image/macro wildlife.webp" alt="Macro Wildlife">
+                    </div>
+                    <div class="card-content">
+                        <h3>Macro Wildlife</h3>
+                        <p>Explore Collection &rarr;</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Photographer Preview -->
+    <section class="section about-preview">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-image parallax-img">
+                    <img src="image/1.webp" alt="Photographer in action">
+                    <div class="experience-badge glass-panel">
+                        <span class="years">15+</span>
+                        <span class="text">Years of<br>Experience</span>
+                    </div>
+                </div>
+                <div class="about-text">
+                    <h2 class="section-title fade-right">The Eye Behind<br><span class="text-gold">The Lens</span></h2>
+                    <p class="fade-right delay-1">With a passion for preserving the untamed spirit of our planet, I've spent over a decade traversing the most remote corners of the globe.</p>
+                    <p class="fade-right delay-2">Every photograph is a testament to the raw, unfiltered beauty of nature, captured in its purest form to inspire conservation and awe.</p>
+                    <div class="awards fade-right delay-3">
+                        <h4>Awards Showcase</h4>
+                        <div class="award-list">
+                            <span>🏆 Wildlife Photographer of the Year 2023</span>
+                            <span>🏆 NatGeo Nature's Best</span>
+                            <span>🏆 Sony World Photography Awards</span>
+                        </div>
+                    </div>
+                    <a href="about.html" class="btn btn-outline hover-target fade-right delay-4" style="margin-top: 2rem;">Read Full Biography</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Animated Statistics -->
+    <section class="section stats" style="background: linear-gradient(rgba(5,5,5,0.9), rgba(5,5,5,0.9)), url('image/black & white.webp') center/cover fixed;">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item glass-panel fade-up">
+                    <div class="stat-number" data-target="10000">0</div>
+                    <div class="stat-label">Photos Captured</div>
+                </div>
+                <div class="stat-item glass-panel fade-up delay-1">
+                    <div class="stat-number" data-target="500">0</div>
+                    <div class="stat-label">Species Photographed</div>
+                </div>
+                <div class="stat-item glass-panel fade-up delay-2">
+                    <div class="stat-number" data-target="50">0</div>
+                    <div class="stat-label">Expeditions</div>
+                </div>
+                <div class="stat-item glass-panel fade-up delay-3">
+                    <div class="stat-number" data-target="25">0</div>
+                    <div class="stat-label">International Awards</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Gallery (Masonry Preview) -->
+    <section class="section featured-gallery">
+        <div class="container">
+            <div class="gallery-header">
+                <h2 class="section-title fade-up">Recent <span class="text-gold">Captures</span></h2>
+                <a href="gallery.html" class="btn btn-outline hover-target fade-up">View Full Gallery</a>
+            </div>
+            
+            <div class="masonry-grid fade-up delay-1">
+                <div class="masonry-item tall">
+                    <img src="image/elephant.webp" alt="Elephant">
+                    <div class="item-overlay"><span>African Giants</span></div>
+                </div>
+                <div class="masonry-item">
+                    <img src="image/birds2.webp" alt="Bird">
+                    <div class="item-overlay"><span>Avian Grace</span></div>
+                </div>
+                <div class="masonry-item wide">
+                    <img src="image/marine life1.webp" alt="Marine Life">
+                    <div class="item-overlay"><span>Deep Blue</span></div>
+                </div>
+                <div class="masonry-item">
+                    <img src="image/lion1.webp" alt="Lion">
+                    <div class="item-overlay"><span>The King</span></div>
+                </div>
+                <div class="masonry-item">
+                    <img src="image/macro wildlife1.webp" alt="Macro">
+                    <div class="item-overlay"><span>Micro World</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="section testimonials">
+        <div class="container">
+            <h2 class="section-title text-center fade-up">Client <span class="text-gold">Stories</span></h2>
+            
+            <div class="testimonial-slider fade-up delay-1">
+                <div class="testimonial-track">
+                    <div class="testimonial-card glass-panel">
+                        <div class="stars">★★★★★</div>
+                        <p>"The prints from the African collection completely transformed our agency's lobby. The depth and emotion in every piece is staggering."</p>
+                        <h4>- National Geographic Editor</h4>
+                    </div>
+                    <div class="testimonial-card glass-panel">
+                        <div class="stars">★★★★★</div>
+                        <p>"Participating in the photo expedition was a life-changing experience. Expert guidance and unforgettable wildlife encounters."</p>
+                        <h4>- Sarah Jenkins, Photographer</h4>
+                    </div>
+                    <div class="testimonial-card glass-panel">
+                        <div class="stars">★★★★★</div>
+                        <p>"Absolutely breathtaking work. The attention to lighting and capturing the soul of these animals is unparalleled."</p>
+                        <h4>- The Wildlife Trust</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="index.html" class="footer-brand">
+                        <img src="stackly-logo.webp" alt="Stackly Logo">
+                    </a>
+                    <p class="footer-desc">Premium wildlife photography capturing the untamed beauty of nature.</p>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-title">Explore</h4>
+                    <ul class="footer-links">
+                        <li><a href="portfolio.html">Portfolio</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="expeditions.html">Expeditions</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-title">Connect</h4>
+                    <ul class="footer-links">
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="404.html" style="display:flex; align-items:center; gap:8px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg> Instagram</a></li>
+                        <li><a href="404.html" style="display:flex; align-items:center; gap:8px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path></svg> Twitter</a></li>
+                        <li><a href="404.html" style="display:flex; align-items:center; gap:8px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg> Facebook</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-title">Our Office</h4>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127641.52766869687!2d36.73973347076216!3d-1.303193375753086!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f1172d84d49a7%3A0xf7cf0254b297924c!2sNairobi%2C%20Kenya!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus" width="100%" height="120" style="border:0; border-radius: 8px; filter: invert(90%) hue-rotate(180deg);" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Stackly Wildlife Photography. All Rights Reserved.</p>
+                <div style="display: flex; gap: 16px;">
+                    <a href="404.html">Privacy Policy</a>
+                    <a href="404.html">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/animations.js"></script>
+</body>
+</html>

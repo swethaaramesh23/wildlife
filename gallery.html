@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery | Stackly Wildlife Photography</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/gallery.css">
+    
+</head>
+<body>
+    <!-- Custom Cursor -->
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar scrolled">
+        <a href="index.html" class="nav-brand">
+            <img src="stackly-logo.webp" alt="Stackly Logo">
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="gallery.html" class="active">Gallery</a></li>
+            <li><a href="expeditions.html">Expeditions</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="nav-actions">
+            <a href="login.html" class="btn btn-outline hover-target">Login</a>
+        </div>
+        <button class="mobile-toggle">☰</button>
+    </nav>
+
+    <!-- Gallery Header & Filters -->
+    <section class="gallery-header-section">
+        <div class="container">
+            <h1 class="page-title text-center">The <span class="text-gold">Archive</span></h1>
+            
+            <div class="filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="lions">Lions</button>
+                <button class="filter-btn" data-filter="tigers">Tigers</button>
+                <button class="filter-btn" data-filter="elephants">Elephants</button>
+                <button class="filter-btn" data-filter="birds">Birds</button>
+                <button class="filter-btn" data-filter="marine">Marine</button>
+                <button class="filter-btn" data-filter="macro">Macro</button>
+                <button class="filter-btn" data-filter="bw">B&W</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Masonry Gallery -->
+    <section class="gallery-section">
+        <div class="container">
+            <div class="gallery-masonry" id="gallery-container">
+                <!-- Items injected via JS -->
+            </div>
+            
+            <div class="text-center" style="margin-top: 50px;">
+                <button class="btn btn-outline hover-target" id="load-more">Load More</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <span class="lightbox-close">&times;</span>
+        <div class="lightbox-content">
+            <img src="" alt="Fullscreen image" id="lightbox-img">
+            <div class="lightbox-metadata">
+                <h3 id="lightbox-title">Image Title</h3>
+                <p id="lightbox-desc">Camera: Sony A1 | Lens: 600mm f/4 | Shutter: 1/2000s | ISO: 800</p>
+            </div>
+        </div>
+        <button class="lightbox-nav prev" id="lightbox-prev">&lsaquo;</button>
+        <button class="lightbox-nav next" id="lightbox-next">&rsaquo;</button>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/gallery.js"></script>
+</body>
+</html>

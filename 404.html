@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Lost In The Wild | Stackly</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <style>
+        .error-page {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-image: linear-gradient(rgba(5,5,5,0.8), rgba(5,5,5,0.8)), url('image/lion.webp');
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+        }
+        
+        .error-content {
+            padding: 50px;
+            border-radius: 12px;
+            backdrop-filter: none;
+            background: rgba(20, 20, 20, 0.4);
+            border: 1px solid rgba(255,255,255,0.1);
+            animation: fadeIn 1s ease;
+        }
+        
+        .error-code {
+            font-family: var(--font-heading);
+            font-size: 8rem;
+            color: var(--accent-gold);
+            line-height: 1;
+            margin-bottom: 20px;
+            text-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        
+        .error-title {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+        
+        .error-desc {
+            color: var(--text-muted);
+            margin-bottom: 40px;
+            font-size: 1.1rem;
+        }
+        
+        .error-actions {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body class="error-page">
+    <!-- Custom Cursor -->
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+
+    <div class="error-content">
+        <div class="error-code">404</div>
+        <h1 class="error-title">Lost In The Wild?</h1>
+        <p class="error-desc">It seems the trail you're following has gone cold. The page you are looking for has migrated or no longer exists.</p>
+        
+        <div class="error-actions">
+            <a href="index.html" class="btn btn-primary hover-target">Return Home</a>
+            <a href="gallery.html" class="btn btn-outline hover-target">Explore Gallery</a>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

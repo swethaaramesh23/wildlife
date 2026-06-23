@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | Stackly Wildlife Photography</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="dashboard-body">
+    <!-- Custom Cursor -->
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+
+    <div class="dashboard-layout">
+        
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <a href="index.html">
+                    <img src="stackly-logo.webp" alt="Stackly Logo" class="sidebar-logo">
+                </a>
+                <button class="close-sidebar d-mobile">&times;</button>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="#" class="active" data-target="overview">Dashboard</a></li>
+                    <li><a href="#" data-target="portfolio">Portfolio Manager</a></li>
+                    <li><a href="#" data-target="gallery">Gallery Manager</a></li>
+                    <li><a href="#" data-target="upload">Photo Uploads</a></li>
+                    <li><a href="#" data-target="expeditions">Expeditions</a></li>
+                    <li><a href="#" data-target="bookings">Bookings</a></li>
+                    <li><a href="#" data-target="blog">Blog Manager</a></li>
+                    <li><a href="#" data-target="analytics">Analytics</a></li>
+                    <li class="nav-divider"></li>
+                    <li><a href="#" data-target="profile">Profile</a></li>
+                    <li><a href="#" data-target="settings">Settings</a></li>
+                    <li><a href="login.html" class="text-gold">Logout</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="dashboard-main">
+            
+            <!-- Header -->
+            <header class="dashboard-header glass-panel">
+                <div class="header-left">
+                    <button class="mobile-toggle d-mobile" id="open-sidebar">☰</button>
+                    <div class="search-bar">
+                        <input type="text" placeholder="Search photos, bookings...">
+                        <button>&rarr;</button>
+                    </div>
+                </div>
+                
+                <div class="header-right">
+                    <button class="theme-toggle" id="theme-toggle">🌙</button>
+                    <!-- Notification bell removed as per requirements -->
+                    <div class="user-profile">
+                        <img src="image/1.webp" alt="User Profile">
+                        <span>Swetha</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Views Container -->
+            <div class="dashboard-content">
+                
+                <!-- Overview View -->
+                <div id="overview-view" class="view-section active">
+                    <div class="page-header-dash">
+                        <h2>Overview</h2>
+                        <p>Welcome back! Here's what's happening today.</p>
+                    </div>
+                    
+                    <!-- Stats Row -->
+                    <div class="stats-row">
+                        <div class="dash-stat-card glass-panel">
+                            <div class="stat-icon">📸</div>
+                            <div class="stat-info">
+                                <p>Total Photos</p>
+                                <h3 class="counter" data-target="10450">0</h3>
+                            </div>
+                        </div>
+                        <div class="dash-stat-card glass-panel">
+                            <div class="stat-icon">👁️</div>
+                            <div class="stat-info">
+                                <p>Monthly Views</p>
+                                <h3 class="counter" data-target="45200">0</h3>
+                            </div>
+                        </div>
+                        <div class="dash-stat-card glass-panel">
+                            <div class="stat-icon">💼</div>
+                            <div class="stat-info">
+                                <p>Active Bookings</p>
+                                <h3 class="counter" data-target="12">0</h3>
+                            </div>
+                        </div>
+                        <div class="dash-stat-card glass-panel">
+                            <div class="stat-icon">💰</div>
+                            <div class="stat-info">
+                                <p>Revenue (MTD)</p>
+                                <h3>$<span class="counter" data-target="8450">0</span></h3>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Charts Row -->
+                    <div class="charts-row">
+                        <div class="chart-container glass-panel">
+                            <h3>Analytics (Views & Engagement)</h3>
+                            <canvas id="viewsChart"></canvas>
+                        </div>
+                        <div class="chart-container glass-panel">
+                            <h3>Revenue Analytics</h3>
+                            <canvas id="revenueChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Portfolio Manager View (Mockup) -->
+                <div id="portfolio-view" class="view-section">
+                    <div class="page-header-dash">
+                        <h2>Portfolio Manager</h2>
+                        <button class="btn btn-primary">Create New Collection</button>
+                    </div>
+                    <div class="glass-panel" style="padding: 30px;">
+                        <p>Select a collection to edit:</p>
+                        <div class="collection-list">
+                            <div class="collection-item">Big Cats (24 photos) <button class="btn btn-outline">Edit</button></div>
+                            <div class="collection-item">Marine Life (18 photos) <button class="btn btn-outline">Edit</button></div>
+                            <div class="collection-item">Birds of Prey (32 photos) <button class="btn btn-outline">Edit</button></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gallery Manager View (Mockup) -->
+                <div id="gallery-view" class="view-section">
+                    <div class="page-header-dash">
+                        <h2>Gallery Manager</h2>
+                    </div>
+                    <div class="glass-panel drag-drop-area">
+                        <p>Drag and drop images here to upload to the gallery</p>
+                        <button class="btn btn-primary" style="margin-top: 15px;">Or Browse Files</button>
+                    </div>
+                </div>
+
+                <!-- Uploads View -->
+                <div id="upload-view" class="view-section">
+                    <div class="page-header-dash">
+                        <h2>Photo Uploads</h2>
+                    </div>
+                    <div class="glass-panel drag-drop-area">
+                        <p>Drag and drop high-res images here</p>
+                        <button class="btn btn-primary" style="margin-top: 15px;">Browse Files</button>
+                    </div>
+                </div>
+
+                <!-- Expeditions View -->
+                <div id="expeditions-view" class="view-section">
+                    <div class="page-header-dash">
+                        <h2>Expeditions</h2>
+                        <button class="btn btn-primary">Add New Tour</button>
+                    </div>
+                    <div class="glass-panel" style="padding: 30px;">
+                        <div class="collection-item">Bandhavgarh Tiger Safari <span class="text-gold">Active</span> <button class="btn btn-outline">Edit</button></div>
+                        <div class="collection-item">Great Migration <span class="text-gold">Upcoming</span> <button class="btn btn-outline">Edit</button></div>
+                    </div>
+                </div>
+
+                <!-- Bookings View -->
+                <div id="bookings-view" class="view-section">
+                    <div class="page-header-dash">
+                        <h2>Bookings & Inquiries</h2>
+                    </div>
+                    <div class="glass-panel" style="padding: 30px;">
+                        <p>Recent inquiries:</p>
+                        <div class="collection-item">Jane Doe - Baja Marine Giants <span class="text-gold">Pending</span> <button class="btn btn-outline">Review</button></div>
+                        <div class="collection-item">Mark Smith - 1-on-1 Workshop <span class="text-gold">Confirmed</span> <button class="btn btn-outline">Details</button></div>
+                    </div>
+                </div>
+
+                <!-- Blog Manager View -->
+                <div id="blog-view" class="view-section">
+                    <div class="page-header-dash">
+                        <h2>Blog Manager</h2>
+                        <button class="btn btn-primary">New Post</button>
+                    </div>
+                    <div class="glass-panel" style="padding: 30px;">
+                        <div class="collection-item">Bengal Tiger Guide <span class="text-gold">Published</span> <button class="btn btn-outline">Edit</button></div>
+                        <div class="collection-item">Autofocus Settings <span class="text-gold">Draft</span> <button class="btn btn-outline">Edit</button></div>
+                    </div>
+                </div>
+
+                <!-- Analytics View -->
+                <div id="analytics-view" class="view-section">
+                    <div class="page-header-dash">
+                        <h2>Detailed Analytics</h2>
+                    </div>
+                    <div class="glass-panel" style="padding: 30px;">
+                        <p>Advanced metrics and reports will be displayed here.</p>
+                        <div class="chart-container" style="height: 300px; margin-top: 20px;">
+                            <canvas id="detailedChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Profile View -->
+                <div id="profile-view" class="view-section">
+                    <div class="page-header-dash">
+                        <h2>Profile Setup</h2>
+                    </div>
+                    <div class="glass-panel" style="padding: 30px; max-width: 600px;">
+                        <div class="form-group" style="margin-bottom: 20px;">
+                            <label style="color:var(--text-muted);">Display Name</label>
+                            <input type="text" value="Swetha" style="width:100%; padding: 10px; background: rgba(0,0,0,0.5); color:white; border: 1px solid var(--glass-border);">
+                        </div>
+                        <div class="form-group" style="margin-bottom: 20px;">
+                            <label style="color:var(--text-muted);">Bio</label>
+                            <textarea rows="4" style="width:100%; padding: 10px; background: rgba(0,0,0,0.5); color:white; border: 1px solid var(--glass-border);">Wildlife photographer and conservationist.</textarea>
+                        </div>
+                        <button class="btn btn-primary">Update Profile</button>
+                    </div>
+                </div>
+
+                <!-- Settings View (Mockup) -->
+                <div id="settings-view" class="view-section">
+                    <div class="page-header-dash">
+                        <h2>Settings</h2>
+                    </div>
+                    <div class="glass-panel" style="padding: 30px; max-width: 600px;">
+                        <div class="form-group" style="margin-bottom: 20px;">
+                            <label style="color:var(--text-muted);">Theme Settings</label>
+                            <select style="width:100%; padding: 10px; background: rgba(0,0,0,0.5); color:white; border: 1px solid var(--glass-border);">
+                                <option>Dark Cinematic (Default)</option>
+                                <option>Light Mode</option>
+                            </select>
+                        </div>
+                        <div class="form-group" style="margin-bottom: 20px;">
+                            <label style="color:var(--text-muted);">Privacy</label>
+                            <label style="display:block; margin-top:10px;"><input type="checkbox" checked> Show public profile</label>
+                            <label style="display:block; margin-top:10px;"><input type="checkbox" checked> Allow indexing</label>
+                        </div>
+                        <button class="btn btn-primary">Save Changes</button>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>

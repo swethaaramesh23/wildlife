@@ -1,0 +1,128 @@
+/* Contact Specific Styles */
+
+.contact-header {
+    padding: 150px 0 50px;
+    background: var(--bg-dark);
+}
+
+.page-title {
+    font-size: clamp(3rem, 5vw, 5rem);
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+/* Contact Grid */
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 50px;
+}
+
+.info-block {
+    padding: 30px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    border-left: 3px solid var(--accent-gold);
+}
+
+.info-block h3 {
+    font-family: var(--font-heading);
+    margin-bottom: 10px;
+    color: var(--text-main);
+}
+
+.info-block p {
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--glass-border);
+    border-radius: 50%;
+    color: white;
+    font-size: 0.9rem;
+    transition: var(--transition-smooth);
+}
+
+.social-links a:hover {
+    background: var(--accent-gold);
+    color: var(--bg-dark);
+    border-color: var(--accent-gold);
+}
+
+/* Form */
+.contact-form-wrapper {
+    padding: 40px;
+    border-radius: 12px;
+}
+
+.custom-form .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.custom-form .form-group {
+    margin-bottom: 25px;
+}
+
+.custom-form label {
+    display: block;
+    margin-bottom: 10px;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.custom-form input,
+.custom-form select,
+.custom-form textarea {
+    width: 100%;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--glass-border);
+    color: white;
+    border-radius: 6px;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    transition: var(--transition-smooth);
+}
+
+.custom-form input:focus,
+.custom-form select:focus,
+.custom-form textarea:focus {
+    outline: none;
+    border-color: var(--accent-gold);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.custom-form select option {
+    background: var(--bg-dark);
+    color: white;
+}
+
+/* Map */
+.map-section {
+    line-height: 0;
+}
+
+@media (max-width: 992px) {
+    .contact-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 768px) {
+    .custom-form .form-row { grid-template-columns: 1fr; }
+    .contact-form-wrapper { padding: 30px 20px; }
+}

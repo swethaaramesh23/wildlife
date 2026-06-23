@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up | Stackly Wildlife Photography</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/auth.css">
+</head>
+<body class="auth-page">
+    <!-- Custom Cursor -->
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar" style="position: absolute; top: 0; width: 100%; z-index: 100; background: transparent; border: none; backdrop-filter: none;">
+        <a href="index.html" class="nav-brand">
+            <img src="stackly-logo.webp" alt="Stackly Logo">
+        </a>
+        <div class="nav-actions">
+            <a href="login.html" class="btn btn-outline hover-target">Sign In</a>
+        </div>
+        <button class="mobile-toggle">☰</button>
+    </nav>
+
+    <div class="auth-split">
+        <!-- Image Side -->
+        <div class="auth-image" style="background-image: url('image/tiger.webp');"></div>
+        
+        <!-- Form Side -->
+        <div class="auth-form-side">
+            <div class="auth-container">
+                <div class="auth-header">
+                    <h2>Create Account</h2>
+                    <p>Join the Stackly community today.</p>
+                </div>
+                
+                <form action="dashboard.html" class="auth-form">
+                    
+                    <div class="form-row">
+                        <div class="input-group">
+                            <input type="text" id="fname" required>
+                            <label for="fname">First Name</label>
+                        </div>
+                        <div class="input-group">
+                            <input type="text" id="lname" required>
+                            <label for="lname">Last Name</label>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <input type="email" id="email" required>
+                        <label for="email">Email Address</label>
+                    </div>
+                    
+                    <div class="input-group">
+                        <input type="password" id="password" required>
+                        <label for="password">Password</label>
+                    </div>
+
+                    <div class="input-group">
+                        <input type="password" id="confirm_password" required>
+                        <label for="confirm_password">Confirm Password</label>
+                    </div>
+                    
+                    <div class="auth-actions" style="margin-bottom: 25px;">
+                        <label class="remember-me hover-target" style="font-size: 0.85rem;">
+                            <input type="checkbox" required> I agree to the <a href="404.html" style="color:var(--accent-gold); text-decoration:none;">Terms</a> & <a href="404.html" style="color:var(--accent-gold); text-decoration:none;">Privacy</a>
+                        </label>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary btn-full hover-target">Register Account</button>
+                </form>
+                
+                <div class="auth-footer">
+                    <p>Already have an account? <a href="login.html" class="hover-target">Sign in</a></p>
+                    <div style="margin-top: 25px;">
+                        <a href="index.html" class="hover-target" style="color: #666; font-size: 0.9rem;">&larr; Back to Home</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+</body>
+</html>

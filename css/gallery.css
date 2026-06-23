@@ -2,12 +2,12 @@
 
 .gallery-header-section {
     padding: 180px 0 60px;
-    background: linear-gradient(135deg, var(--bg-dark) 0%, rgba(20,20,22,1) 50%, var(--bg-dark) 100%);
+    background: linear-gradient(135deg, rgba(20,20,22,0.85) 0%, rgba(20,20,22,0.95) 100%), url('../image/african wildlife.webp') center/cover;
     position: relative;
 }
 
 .page-title {
-    font-size: clamp(3rem, 5vw, 5rem);
+    font-size: clamp(2rem, 4vw, 4rem);
     margin-bottom: 24px;
 }
 
@@ -32,7 +32,7 @@
     border-radius: 40px;
     cursor: pointer;
     text-transform: uppercase;
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     font-family: var(--font-body);
     font-weight: 500;
     letter-spacing: 2px;
@@ -57,6 +57,7 @@
     columns: 4 300px;
     column-gap: 24px;
     margin-bottom: 60px;
+    width: 100%;
 }
 
 .gallery-item {
@@ -107,7 +108,7 @@
 
 .gallery-info h4 {
     color: var(--text-main);
-    font-size: 1.4rem;
+    font-size: 1.1rem;
     margin-bottom: 8px;
     transform: translateY(15px);
     transition: var(--transition-smooth);
@@ -115,7 +116,7 @@
 
 .gallery-info p {
     color: var(--accent-gold);
-    font-size: 0.75rem;
+    font-size: 0.85rem;
     text-transform: uppercase;
     letter-spacing: 2px;
     transform: translateY(15px);
@@ -191,13 +192,13 @@
 
 .lightbox-metadata h3 {
     color: var(--text-main);
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     margin-bottom: 8px;
 }
 
 .lightbox-metadata p {
     color: var(--accent-gold);
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     letter-spacing: 1px;
 }
 

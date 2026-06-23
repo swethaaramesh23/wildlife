@@ -46,6 +46,7 @@
     background: var(--bg-dark);
     position: relative;
     overflow-y: auto;
+    width: 100%;
 }
 
 .auth-container {

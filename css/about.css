@@ -25,7 +25,7 @@
 }
 
 .page-title {
-    font-size: clamp(3.5rem, 6vw, 6rem);
+    font-size: clamp(2rem, 5vw, 4rem);
     margin-bottom: 24px;
     text-transform: uppercase;
 }
@@ -68,12 +68,12 @@
     margin-bottom: 24px;
     line-height: 1.8;
     color: var(--text-muted);
-    font-size: 1.15rem;
+    font-size: 1rem;
 }
 
 .signature {
     font-family: var(--font-heading);
-    font-size: 2.5rem;
+    font-size: 2rem;
     color: var(--accent-gold);
     margin-top: 40px;
     opacity: 0.8;
@@ -149,13 +149,13 @@
     color: var(--accent-gold);
     margin-bottom: 12px;
     font-family: var(--font-heading);
-    font-size: 1.6rem;
+    font-size: 1.3rem;
 }
 
 .timeline-content p {
     color: var(--text-muted);
     line-height: 1.7;
-    font-size: 1.05rem;
+    font-size: 0.9rem;
 }
 
 /* Awards Showcase */
@@ -172,25 +172,25 @@
 }
 
 .award-icon {
-    font-size: 3rem;
+    font-size: 2.5rem;
     color: var(--accent-gold);
     margin-bottom: 20px;
 }
 
 .award-card h4 {
-    font-size: 1.2rem;
+    font-size: 1rem;
     margin-bottom: 10px;
 }
 
 .award-card p {
     color: var(--text-muted);
-    font-size: 0.9rem;
+    font-size: 0.8rem;
 }
 
 /* Equipment */
 .equipment-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 30px;
     margin-top: 60px;
 }
@@ -221,14 +221,14 @@
 }
 
 .gear-name {
-    font-size: 1.3rem;
+    font-size: 1.1rem;
     color: var(--accent-gold);
     margin-bottom: 20px;
     font-weight: 500;
 }
 
 .gear-card p:last-child {
-    font-size: 0.95rem;
+    font-size: 0.85rem;
     color: var(--text-muted);
     line-height: 1.7;
 }
@@ -244,7 +244,7 @@
 }
 
 .mission-box p {
-    font-size: 1.4rem;
+    font-size: 1.1rem;
     line-height: 1.9;
     color: var(--text-main);
     margin: 30px 0 40px;

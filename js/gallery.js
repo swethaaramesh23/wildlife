@@ -33,7 +33,13 @@ document.addEventListener('DOMContentLoaded', () => {
         { src: 'image/v.webp', category: 'birds', title: 'Flight Pattern', desc: 'Sony A1 | 600mm | 1/2000s | f/4' },
         { src: 'image/c.webp', category: 'mammals', title: 'Curious Cub', desc: 'Sony A1 | 400mm | 1/500s | f/2.8' },
         { src: 'image/x.webp', category: 'marine', title: 'Shallows', desc: 'Sony A1 | 16-35mm | 1/200s | f/8' },
-        { src: 'image/z.webp', category: 'birds', title: 'Feathers', desc: 'Sony A1 | 400mm | 1/1000s | f/5.6' }
+        { src: 'image/z.webp', category: 'birds', title: 'Feathers', desc: 'Sony A1 | 400mm | 1/1000s | f/5.6' },
+        { src: 'image/lion1.webp', category: 'mammals', title: 'Savanna King', desc: 'Sony A1 | 600mm | 1/1000s | f/4' },
+        { src: 'image/tiger1.webp', category: 'mammals', title: 'Jungle Stalker', desc: 'Sony A1 | 400mm | 1/800s | f/2.8' },
+        { src: 'image/birds2.webp', category: 'birds', title: 'Soaring High', desc: 'Sony A1 | 600mm | 1/3200s | f/4' },
+        { src: 'image/marine life2.webp', category: 'marine', title: 'Ocean Deep', desc: 'Sony A1 | 16-35mm | 1/250s | f/8' },
+        { src: 'image/macro wildlife1.webp', category: 'macro', title: 'Tiny World', desc: 'Sony A1 | 90mm Macro | 1/200s | f/11' },
+        { src: 'image/black & white1.webp', category: 'mammals', title: 'Shadow Play', desc: 'Sony A1 | 400mm | 1/1000s | f/4' }
     ];
 
     const galleryContainer = document.getElementById('gallery-container');

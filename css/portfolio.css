@@ -107,13 +107,13 @@
 
 .port-grid {
     display: grid;
-    grid-template-columns: 1fr 1.5fr;
+    grid-template-columns: 1fr 2.5fr;
     gap: 80px;
     align-items: center;
 }
 
 .port-grid.reverse {
-    grid-template-columns: 1.5fr 1fr;
+    grid-template-columns: 2.5fr 1fr;
 }
 
 .port-grid.reverse .port-text {
@@ -175,8 +175,8 @@
 
 .port-images {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 30px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
     position: relative;
 }
 
@@ -206,7 +206,13 @@
     .port-grid.reverse .port-images { order: 2; }
     
     .category-nav { top: 76px; }
+    
+    .port-images {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
+
+@media (max-width: 768px) {
 
 @media (max-width: 576px) {
     .category-nav { display: none; } /* Hide on very small screens or change to dropdown */

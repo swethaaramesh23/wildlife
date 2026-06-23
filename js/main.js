@@ -47,40 +47,78 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Mobile Menu Toggle
+    // Premium Mobile Menu Implementation
     const mobileToggle = document.querySelector('.mobile-toggle');
-    const navLinks = document.querySelector('.nav-links');
     
     if(mobileToggle) {
-        // Create mobile menu container if it doesn't exist
-        let mobileMenu = document.querySelector('.mobile-menu');
-        if(!mobileMenu) {
-            mobileMenu = document.createElement('div');
-            mobileMenu.className = 'mobile-menu';
-            const cloneLinks = navLinks.cloneNode(true);
-            const closeBtn = document.createElement('button');
-            closeBtn.className = 'mobile-toggle';
-            closeBtn.innerHTML = '✕';
-            closeBtn.style.position = 'absolute';
-            closeBtn.style.top = '28px';
-            closeBtn.style.right = '4%';
-            mobileMenu.appendChild(closeBtn);
-            mobileMenu.appendChild(cloneLinks);
-            document.body.appendChild(mobileMenu);
+        // Create elements
+        const overlay = document.createElement('div');
+        overlay.className = 'mobile-overlay';
+        
+        const mobileMenu = document.createElement('div');
+        mobileMenu.className = 'mobile-menu';
+        
+        // Define navigation structure
+        const links = [
+            { name: 'Home', url: 'index.html' },
+            { name: 'About', url: 'about.html' },
+            { name: 'Portfolio', url: 'portfolio.html' },
+            { name: 'Gallery', url: 'gallery.html' },
+            { name: 'Expeditions', url: 'expeditions.html' },
+            { name: 'Blog', url: 'blog.html' },
+            { name: 'Contact', url: 'contact.html' },
+            { name: 'Login', url: 'login.html' }
+        ];
+        
+        // Build menu HTML
+        const closeBtn = document.createElement('button');
+        closeBtn.innerHTML = '✕';
+        closeBtn.className = 'mobile-close-btn';
+        closeBtn.setAttribute('aria-label', 'Close menu');
 
-            mobileToggle.addEventListener('click', () => {
-                mobileMenu.classList.add('active');
-            });
+        const ul = document.createElement('ul');
+        ul.className = 'nav-links';
+        
+        links.forEach(link => {
+            const li = document.createElement('li');
+            const a = document.createElement('a');
+            a.href = link.url;
+            a.textContent = link.name;
+            li.appendChild(a);
+            ul.appendChild(li);
+        });
+        
+        mobileMenu.appendChild(closeBtn);
+        mobileMenu.appendChild(ul);
+        document.body.appendChild(overlay);
+        document.body.appendChild(mobileMenu);
+
+        // State
+        let isMenuOpen = false;
+
+        const toggleMenu = () => {
+            isMenuOpen = !isMenuOpen;
             
-            closeBtn.addEventListener('click', () => {
+            if (isMenuOpen) {
+                mobileMenu.classList.add('active');
+                overlay.classList.add('active');
+                document.body.style.overflow = 'hidden'; // Prevent background scrolling
+            } else {
                 mobileMenu.classList.remove('active');
-            });
+                overlay.classList.remove('active');
+                document.body.style.overflow = ''; // Restore scrolling
+            }
+        };
 
-            cloneLinks.querySelectorAll('a').forEach(link => {
-                link.addEventListener('click', () => {
-                    mobileMenu.classList.remove('active');
-                });
+        // Event Listeners
+        mobileToggle.addEventListener('click', toggleMenu);
+        closeBtn.addEventListener('click', toggleMenu);
+        overlay.addEventListener('click', toggleMenu);
+        
+        ul.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                if(isMenuOpen) toggleMenu();
             });
-        }
+        });
     }
 });

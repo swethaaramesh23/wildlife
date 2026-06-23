@@ -92,6 +92,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             }
             
+            // Save username to localStorage
+            const emailInput = form.querySelector('input[type="email"]');
+            let userName = 'User';
+            if (emailInput && emailInput.value) {
+                userName = emailInput.value.split('@')[0];
+                userName = userName.charAt(0).toUpperCase() + userName.slice(1);
+            }
+            localStorage.setItem('userName', userName);
+            
             // For static demo, force redirect
             e.preventDefault();
             const roleInput = document.querySelector('input[name="role"]:checked');

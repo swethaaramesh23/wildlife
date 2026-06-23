@@ -34,7 +34,7 @@
 /* Blog Layout */
 .blog-layout {
     display: grid;
-    grid-template-columns: 2.5fr 1fr;
+    grid-template-columns: 3fr 1fr;
     gap: 60px;
 }
 
@@ -106,6 +106,7 @@
 
 .blog-meta {
     display: flex;
+    flex-wrap: wrap;
     gap: 20px;
     color: var(--accent-gold);
     font-size: 0.85rem;
@@ -189,7 +190,7 @@
 /* Grid for smaller articles */
 .blog-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, 1fr);
     gap: 40px;
 }
 

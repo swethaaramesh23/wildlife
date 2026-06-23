@@ -27,7 +27,7 @@
         <!-- Sidebar -->
         <aside class="sidebar" id="sidebar">
             <div class="sidebar-header" style="justify-content: flex-end;">
-                <button class="close-sidebar d-mobile">&times;</button>
+                <button class="close-sidebar d-mobile" onclick="document.getElementById('sidebar').classList.remove('open')">&times;</button>
             </div>
             
             <nav class="sidebar-nav">
@@ -54,7 +54,7 @@
             <!-- Header -->
             <header class="dashboard-header" style="position: relative;">
                 <div class="header-left">
-                    <button class="mobile-toggle d-mobile" id="open-sidebar">☰</button>
+                    <button class="dash-mobile-toggle d-mobile" id="open-sidebar" onclick="document.getElementById('sidebar').classList.add('open')">☰</button>
                     <div class="search-bar">
                         <input type="text" placeholder="Search collection, bookings...">
                         <button>&rarr;</button>
@@ -80,7 +80,7 @@
                 
                 <!-- Overview View -->
                 <div id="overview-view" class="view-section active">
-                    <div class="page-header-dash" style="display: flex; justify-content: space-between; align-items: flex-end;">
+                    <div class="page-header-dash">
                         <div>
                             <h2>Studio Overview</h2>
                             <p>Welcome back. Here is your operational summary for today.</p>
@@ -139,7 +139,7 @@
 
                 <!-- Portfolio Manager View -->
                 <div id="portfolio-view" class="view-section">
-                    <div class="page-header-dash" style="display: flex; justify-content: space-between;">
+                    <div class="page-header-dash">
                         <div>
                             <h2>Portfolio Manager</h2>
                             <p>Organize your featured collections and cinematic stories.</p>
@@ -202,7 +202,7 @@
 
                 <!-- Expeditions View -->
                 <div id="expeditions-view" class="view-section">
-                    <div class="page-header-dash" style="display: flex; justify-content: space-between;">
+                    <div class="page-header-dash">
                         <div>
                             <h2>Expedition Management</h2>
                             <p>Control itineraries, pricing, and availability.</p>
@@ -253,7 +253,7 @@
 
                 <!-- Blog Manager View -->
                 <div id="blog-view" class="view-section">
-                    <div class="page-header-dash" style="display: flex; justify-content: space-between;">
+                    <div class="page-header-dash">
                         <div>
                             <h2>Journal Entries</h2>
                             <p>Draft and publish field notes and tutorials.</p>
@@ -297,7 +297,7 @@
                         <h2>Studio Profile</h2>
                         <p>Manage your public persona and agency details.</p>
                     </div>
-                    <div class="glass-panel" style="padding: 40px; max-width: 700px; border-radius: 12px; background: rgba(15,15,18,0.6);">
+                    <div class="glass-panel" style="padding: 40px; border-radius: 12px; background: rgba(15,15,18,0.6);">
                         <div style="display: flex; gap: 30px; margin-bottom: 40px; align-items: center;">
                             <img src="image/1.webp" alt="Avatar" style="width: 100px; height: 100px; border-radius: 50%; border: 2px solid var(--accent-gold); object-fit: cover;">
                             <div>
@@ -331,7 +331,7 @@
                         <h2>System Settings</h2>
                         <p>Configure platform preferences and security.</p>
                     </div>
-                    <div class="glass-panel" style="padding: 40px; max-width: 700px; border-radius: 12px; background: rgba(15,15,18,0.6);">
+                    <div class="glass-panel" style="padding: 40px; border-radius: 12px; background: rgba(15,15,18,0.6);">
                         <h3 style="color: white; margin-bottom: 20px; font-family: var(--font-heading);">Security</h3>
                         <button class="btn btn-outline" style="margin-bottom: 40px;">Change Password</button>
                         
@@ -364,14 +364,21 @@
     
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const urlParams = new URLSearchParams(window.location.search);
-            const role = urlParams.get('role') || 'photographer';
+            // Role-based UI rendering
+            const role = localStorage.getItem('userRole') || 'admin';
+            const savedName = localStorage.getItem('userName');
+            
+            // Update Profile Name globally
+            const profileSpan = document.querySelector('.user-profile span');
+            if (profileSpan) {
+                if (savedName) {
+                    profileSpan.textContent = savedName;
+                } else {
+                    profileSpan.textContent = role === 'client' ? 'Client User' : 'Studio Admin';
+                }
+            }
             
             if (role === 'client') {
-                // Update Profile Name
-                const profileSpan = document.querySelector('.user-profile span');
-                if (profileSpan) profileSpan.textContent = 'Client User';
-                
                 // Hide Admin links
                 const adminTargets = ['portfolio', 'gallery', 'upload', 'blog', 'analytics', 'profile'];
                 document.querySelectorAll('.sidebar-nav a').forEach(link => {

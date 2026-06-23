@@ -142,11 +142,11 @@
 
                     <!-- Pagination -->
                     <div class="pagination fade-up">
-                        <button class="btn btn-outline" disabled style="padding: 10px 20px;">&larr; Prev</button>
-                        <button class="page-num active" onclick="window.location.href='blog.html'">1</button>
-                        <button class="page-num" onclick="window.location.href='blog.html'">2</button>
-                        <button class="page-num" onclick="window.location.href='blog.html'">3</button>
-                        <button class="btn btn-outline" style="padding: 10px 20px;" onclick="window.location.href='blog.html'">Next &rarr;</button>
+                        <button class="btn btn-outline" id="prev-btn" disabled style="padding: 10px 20px;" onclick="changePage(-1)">&larr; Prev</button>
+                        <button class="page-num active" id="page-1" onclick="setPage(1)">1</button>
+                        <button class="page-num" id="page-2" onclick="setPage(2)">2</button>
+                        <button class="page-num" id="page-3" onclick="setPage(3)">3</button>
+                        <button class="btn btn-outline" id="next-btn" style="padding: 10px 20px;" onclick="changePage(1)">Next &rarr;</button>
                     </div>
 
                 </div>
@@ -187,7 +187,7 @@
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer class="footer fade-up">
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
@@ -195,10 +195,16 @@
                         <img src="stackly-logo.webp" alt="Stackly Logo">
                     </a>
                     <p class="footer-desc">Premium wildlife photography capturing the untamed beauty of nature through cinematic storytelling.</p>
+                    <form class="footer-newsletter" style="margin-top: 20px; display: flex; gap: 8px;">
+                        <input type="email" placeholder="Email Address" style="flex: 1; padding: 10px 12px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.05); color: #fff; outline: none; font-size: 14px;" required>
+                        <button type="submit" style="padding: 10px 16px; border-radius: 4px; border: none; background: #d4af37; color: #000; font-weight: bold; cursor: pointer; font-size: 14px; transition: opacity 0.3s ease;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">Subscribe</button>
+                    </form>
                 </div>
                 <div class="footer-col">
                     <h4 class="footer-title">Explore</h4>
                     <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
                         <li><a href="portfolio.html">Portfolio</a></li>
                         <li><a href="gallery.html">Gallery</a></li>
                         <li><a href="expeditions.html">Expeditions</a></li>
@@ -207,23 +213,33 @@
                 </div>
                 <div class="footer-col">
                     <h4 class="footer-title">Connect</h4>
-                    <ul class="footer-links">
+                    <ul class="footer-links" style="margin-bottom: 20px;">
                         <li><a href="contact.html">Contact Us</a></li>
-                        <li><a href="404.html" style="display:flex; align-items:center; gap:8px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg> Instagram</a></li>
-                        <li><a href="404.html" style="display:flex; align-items:center; gap:8px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path></svg> Twitter</a></li>
-                        <li><a href="404.html" style="display:flex; align-items:center; gap:8px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg> Facebook</a></li>
+                        <li><span style="color: var(--text-muted); font-size: 14px;">studio@stackly.com</span></li>
+                        <li><span style="color: var(--text-muted); font-size: 14px;">+254 700 000 000</span></li>
                     </ul>
+                    <div class="social-icons">
+                        <a href="404.html" title="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+                        <a href="404.html" title="Twitter/X"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path></svg></a>
+                        <a href="404.html" title="Facebook"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
+                        <a href="404.html" title="YouTube"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33 2.78 2.78 0 0 0 1.94 2c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.33 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg></a>
+                    </div>
                 </div>
                 <div class="footer-col">
                     <h4 class="footer-title">Our Office</h4>
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127641.52766869687!2d36.73973347076216!3d-1.303193375753086!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f1172d84d49a7%3A0xf7cf0254b297924c!2sNairobi%2C%20Kenya!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus" width="100%" height="120" style="border:0; border-radius: 8px; filter: invert(90%) hue-rotate(180deg);" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <div class="footer-map-wrapper">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127641.52766869687!2d36.73973347076216!3d-1.303193375753086!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f1172d84d49a7%3A0xf7cf0254b297924c!2sNairobi%2C%20Kenya!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                    <p style="color: var(--text-muted); font-size: 13px; line-height: 1.6; margin-top: 15px;">
+                        <strong>Hours:</strong> Mon - Fri: 9:00 AM - 6:00 PM<br>
+                        Sat - Sun: Closed
+                    </p>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 Stackly Wildlife Photography. All Rights Reserved.</p>
-                <div style="display: flex; gap: 24px;">
-                    <a href="404.html">Privacy Policy</a>
-                    <a href="404.html">Terms of Service</a>
+                <p>&copy; 2026 Stackly Wildlife Photography</p>
+                <div class="footer-legal">
+                    <a href="404.html">Privacy Policy</a> | <a href="404.html">Terms of Service</a>
                 </div>
             </div>
         </div>
@@ -232,5 +248,88 @@
     <!-- Scripts -->
     <script src="js/main.js"></script>
     <script src="js/animations.js"></script>
+    <script>
+        // Simple mock pagination for blog
+        let currentPage = 1;
+        const totalPages = 3;
+        
+        const articles = document.querySelectorAll('.blog-card.stagger-item:not(.featured)');
+        
+        const pageContent = [
+            // Page 1 is the default content
+            null,
+            // Page 2
+            [
+                { img: 'image/tiger2.webp', badge: 'Conservation', date: 'March 15, 2026', title: 'Protecting the Tiger Corridors', desc: 'An inside look at the conservation efforts in central India to maintain genetic diversity among isolated tiger populations.' },
+                { img: 'image/birds2.webp', badge: 'Gear', date: 'March 02, 2026', title: 'The Best Lenses for Songbirds', desc: 'Why the 200-600mm might be the perfect versatile lens for capturing erratic small bird movement.' },
+                { img: 'image/marine life2.webp', badge: 'Field Story', date: 'February 18, 2026', title: 'Diving with Manta Rays', desc: 'The incredible experience of swimming alongside these gentle giants in the Maldives.' },
+                { img: 'image/black & white2.webp', badge: 'Editing', date: 'February 10, 2026', title: 'High Key Processing Techniques', desc: 'Creating stunning minimalist high-key portraits from wildlife shot against overcast skies.' }
+            ],
+            // Page 3
+            [
+                { img: 'image/elephant2.webp', badge: 'Field Story', date: 'January 25, 2026', title: 'The Desert Elephants of Namibia', desc: 'Tracking the uniquely adapted elephants that survive in the harsh environment of the Namib desert.' },
+                { img: 'image/macro wildlife2.webp', badge: 'Tutorial', date: 'January 12, 2026', title: 'Focus Stacking in the Wild', desc: 'How to successfully execute focus stacks for macro photography when elements are moving in the wind.' },
+                { img: 'image/african wildlife2.webp', badge: 'Conservation', date: 'December 28, 2025', title: 'Rhino Protection Units', desc: 'A week spent documenting the anti-poaching units that work tirelessly to protect the remaining rhinos.' },
+                { img: 'image/1c.webp', badge: 'Gear', date: 'December 15, 2025', title: 'My Complete Safari Packing List', desc: 'Everything I bring on a 3-week expedition, from cameras to solar chargers.' }
+            ]
+        ];
+
+        // Store original content
+        if(!window.originalContent) {
+            window.originalContent = Array.from(articles).map(article => {
+                return {
+                    img: article.querySelector('img').src,
+                    badge: article.querySelector('.category-badge').textContent,
+                    date: article.querySelector('.blog-meta span:first-child').textContent,
+                    title: article.querySelector('h3 a').textContent,
+                    desc: article.querySelector('p').textContent
+                };
+            });
+            pageContent[0] = window.originalContent;
+        }
+
+        function setPage(pageNum) {
+            currentPage = pageNum;
+            updatePagination();
+            updateContent();
+        }
+
+        function changePage(dir) {
+            currentPage += dir;
+            if(currentPage < 1) currentPage = 1;
+            if(currentPage > totalPages) currentPage = totalPages;
+            updatePagination();
+            updateContent();
+        }
+
+        function updatePagination() {
+            document.querySelectorAll('.page-num').forEach(btn => btn.classList.remove('active'));
+            document.getElementById(`page-${currentPage}`).classList.add('active');
+            
+            document.getElementById('prev-btn').disabled = currentPage === 1;
+            document.getElementById('next-btn').disabled = currentPage === totalPages;
+        }
+
+        function updateContent() {
+            const content = pageContent[currentPage - 1];
+            
+            articles.forEach((article, index) => {
+                // Fade out
+                gsap.to(article, { opacity: 0, y: 20, duration: 0.3, onComplete: () => {
+                    // Update content
+                    if(content[index]) {
+                        article.querySelector('img').src = content[index].img;
+                        article.querySelector('.category-badge').textContent = content[index].badge;
+                        article.querySelector('.blog-meta span:first-child').textContent = content[index].date;
+                        article.querySelector('h3 a').textContent = content[index].title;
+                        article.querySelector('p').textContent = content[index].desc;
+                    }
+                    
+                    // Fade in
+                    gsap.to(article, { opacity: 1, y: 0, duration: 0.3, delay: index * 0.1 });
+                }});
+            });
+        }
+    </script>
 </body>
 </html>

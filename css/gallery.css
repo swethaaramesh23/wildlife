@@ -2,12 +2,12 @@
 
 .gallery-header-section {
     padding: 180px 0 60px;
-    background: linear-gradient(135deg, rgba(20,20,22,0.85) 0%, rgba(20,20,22,0.95) 100%), url('../image/african wildlife.webp') center/cover;
+    background: var(--bg-dark);
     position: relative;
 }
 
 .page-title {
-    font-size: clamp(2rem, 4vw, 4rem);
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
     margin-bottom: 24px;
 }
 
@@ -54,10 +54,15 @@
 
 /* Advanced Masonry */
 .gallery-masonry {
-    columns: 4 300px;
+    column-count: 4;
     column-gap: 24px;
     margin-bottom: 60px;
     width: 100%;
+}
+
+@keyframes fadeInUpGallery {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 .gallery-item {
@@ -67,13 +72,11 @@
     border-radius: 12px;
     overflow: hidden;
     cursor: pointer;
-    transform: translateY(20px);
     opacity: 0;
-    animation: slideUpFade 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-@keyframes slideUpFade {
-    to { transform: translateY(0); opacity: 1; }
+.gallery-item.animated {
+    animation: fadeInUpGallery 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .gallery-item img {
@@ -84,18 +87,18 @@
 }
 
 .gallery-item:hover img {
-    transform: scale(1.08);
+    transform: scale(1.15);
 }
 
 .gallery-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to top, rgba(7,7,8,0.9) 0%, rgba(7,7,8,0.4) 50%, transparent 100%);
+    background: linear-gradient(to top, rgba(7,7,8,0.95) 0%, rgba(7,7,8,0.5) 50%, transparent 100%);
     display: flex;
     align-items: flex-end;
     padding: 30px;
     opacity: 0;
-    transition: var(--transition-smooth);
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .gallery-item:hover .gallery-overlay {
@@ -290,20 +293,19 @@
 }
 
 @media (max-width: 992px) {
-    .gallery-masonry { columns: 3 250px; }
+    .gallery-masonry { column-count: 2; }
     .lightbox-nav { width: 50px; height: 50px; font-size: 20px; }
     .lightbox-nav.prev { left: 20px; }
     .lightbox-nav.next { right: 20px; }
 }
 
 @media (max-width: 768px) {
-    .gallery-masonry { columns: 2 200px; }
+    .gallery-masonry { column-count: 1; }
     .filters { gap: 10px; }
     .filter-btn { padding: 10px 20px; font-size: 0.75rem; }
 }
 
 @media (max-width: 576px) {
-    .gallery-masonry { columns: 1 auto; }
     .lightbox-nav { display: none; /* Hide on very small screens, use swipe or tap edges */ }
     .lightbox-close { top: 20px; right: 20px; }
     .lightbox-metadata { padding: 15px 20px; }

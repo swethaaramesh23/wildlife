@@ -2,8 +2,11 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Gallery Data (Extended with requirements)
     const galleryData = [
-        { src: 'image/lion.webp', category: 'mammals', title: 'Savanna King', desc: 'Sony A1 | 600mm | 1/1000s | f/4' },
-        { src: 'image/tiger.webp', category: 'mammals', title: 'Jungle Ghost', desc: 'Sony A1 | 400mm | 1/800s | f/2.8' },
+        { src: 'image/lion.webp', category: 'mammals', title: 'The King', desc: 'Sony A1 | 400mm | 1/1000s | f/2.8' },
+        { src: 'image/reptiles.webp', category: 'reptiles', title: 'Jungle Snake', desc: 'Sony A1 | 90mm Macro | 1/200s | f/8' },
+        { src: 'image/reptiles1.webp', category: 'reptiles', title: 'Monitor Lizard', desc: 'Nikon Z9 | 200mm | 1/500s | f/4' },
+        { src: 'image/reptiles2.webp', category: 'reptiles', title: 'Chameleon', desc: 'Canon R5 | 100mm Macro | 1/250s | f/5.6' },
+        { src: 'image/tiger.webp', category: 'mammals', title: 'Bengal Tiger', desc: 'Canon R5 | 600mm | 1/2000s | f/4' },
         { src: 'image/elephant.webp', category: 'mammals', title: 'Gentle Giants', desc: 'Sony A1 | 70-200mm | 1/500s | f/5.6' },
         { src: 'image/birds.webp', category: 'birds', title: 'Flight', desc: 'Sony A1 | 600mm | 1/3200s | f/4' },
         { src: 'image/marine life.webp', category: 'marine', title: 'Deep Blue', desc: 'Sony A1 | 16-35mm | 1/250s | f/8' },
@@ -77,21 +80,19 @@ document.addEventListener('DOMContentLoaded', () => {
     function loadMoreItems() {
         if (loadedCount >= filteredData.length) {
             if(loader) loader.classList.remove('active');
-            return; // All loaded
+            return;
         }
         
         if(loader) loader.classList.add('active');
 
-        // Simulate network delay for premium feel
         setTimeout(() => {
             const nextBatch = filteredData.slice(loadedCount, loadedCount + itemsPerLoad);
             
             nextBatch.forEach((item, index) => {
-                const delay = (index % itemsPerLoad) * 0.1;
                 const realIndex = galleryData.indexOf(item);
                 
                 const html = `
-                    <div class="gallery-item" data-index="${realIndex}" style="animation-delay: ${delay}s">
+                    <div class="gallery-item" data-index="${realIndex}">
                         <img src="${item.src}" alt="${item.title}" loading="lazy">
                         <div class="gallery-overlay">
                             <div class="gallery-info">
@@ -104,13 +105,20 @@ document.addEventListener('DOMContentLoaded', () => {
                 galleryContainer.insertAdjacentHTML('beforeend', html);
             });
 
+            const newItems = document.querySelectorAll('.gallery-item:not(.animated)');
+            newItems.forEach((el, i) => {
+                el.style.animationDelay = `${(i % itemsPerLoad) * 0.1}s`;
+                // Force a reflow before adding the animated class to ensure transition plays
+                void el.offsetWidth;
+                el.classList.add('animated');
+            });
+
             loadedCount += nextBatch.length;
-            attachLightboxListeners();
             
             if (loadedCount >= filteredData.length) {
                 if(loader) loader.classList.remove('active');
             }
-        }, 800); // 800ms delay for animation
+        }, 500);
     }
 
     // Filter Click Events
@@ -153,21 +161,14 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentIndex = 0;
     let currentViewData = [];
 
-    function attachLightboxListeners() {
-        const items = document.querySelectorAll('.gallery-item');
-        items.forEach(item => {
-            // Remove existing to avoid duplicates if re-attaching
-            const clone = item.cloneNode(true);
-            item.parentNode.replaceChild(clone, item);
-            
-            clone.addEventListener('click', () => {
-                currentViewData = filteredData;
-                const realIndex = parseInt(clone.getAttribute('data-index'));
-                const visibleIndex = currentViewData.findIndex(d => galleryData.indexOf(d) === realIndex);
-                openLightbox(visibleIndex);
-            });
-        });
-    }
+    galleryContainer.addEventListener('click', (e) => {
+        const item = e.target.closest('.gallery-item');
+        if (!item) return;
+        currentViewData = filteredData;
+        const realIndex = parseInt(item.getAttribute('data-index'));
+        const visibleIndex = currentViewData.findIndex(d => galleryData.indexOf(d) === realIndex);
+        if(visibleIndex !== -1) openLightbox(visibleIndex);
+    });
 
     function openLightbox(index) {
         currentIndex = index;
@@ -191,11 +192,17 @@ document.addEventListener('DOMContentLoaded', () => {
         lightboxImg.style.opacity = 0;
         setTimeout(() => {
             lightboxImg.src = data.src;
-            lightboxImg.onload = () => {
-                lightboxImg.style.opacity = 1;
-            };
             lightboxTitle.textContent = data.title;
             lightboxDesc.textContent = data.desc;
+            
+            // Check if already loaded to avoid hanging opacity
+            if (lightboxImg.complete) {
+                lightboxImg.style.opacity = 1;
+            } else {
+                lightboxImg.onload = () => {
+                    lightboxImg.style.opacity = 1;
+                };
+            }
         }, 200);
     }
 

@@ -368,7 +368,7 @@
 }
 
 @media (max-width: 768px) {
-    .blog-grid { grid-template-columns: 1fr; }
+    .blog-grid { grid-template-columns: repeat(2, 1fr); }
     .blog-card.featured .blog-img { height: 300px; }
     .blog-content { padding: 30px; }
     .blog-content h2 { font-size: 2rem; }
@@ -376,6 +376,7 @@
 }
 
 @media (max-width: 480px) {
-    .blog-container { width: 95%; }
+    .blog-grid { grid-template-columns: 1fr; }
+    .blog-container { width: 100%; padding: 0 16px; }
     .blog-img { height: 250px; }
 }

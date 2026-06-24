@@ -205,3 +205,19 @@
     .contact-form-wrapper { padding: 30px 20px; }
     .contact-header { padding: 150px 0 60px; }
 }
+
+/* FAQ Grid */
+.faq-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+    .faq-grid {
+        grid-template-columns: 1fr;
+    }
+}
+

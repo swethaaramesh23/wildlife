@@ -407,6 +407,7 @@
     /* Component specific fixes */
     .glass-panel { padding: 20px !important; }
     .collection-item { flex-direction: column; align-items: flex-start; padding: 15px 0; }
+    .collection-item h4 { white-space: normal; margin-bottom: 5px; }
     
     /* Profile specific fixes for inline styles */
     #profile-view .glass-panel > div:nth-child(2) {
@@ -420,3 +421,23 @@
     
     .drag-drop-area { padding: 40px 20px; }
 }
+
+.profile-form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+    .profile-form-row {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+.chart-container canvas {
+    max-width: 100% !important;
+    height: auto !important;
+}
+

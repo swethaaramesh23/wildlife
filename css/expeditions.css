@@ -227,7 +227,12 @@
 }
 
 @media (max-width: 768px) {
+    .tour-grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
     .workshop-grid { grid-template-columns: 1fr; }
     .custom-form .form-row { grid-template-columns: 1fr; }
     .booking-form-wrapper { padding: 30px 20px; }
+}
+
+@media (max-width: 480px) {
+    .tour-grid { grid-template-columns: 1fr; }
 }

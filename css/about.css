@@ -252,8 +252,9 @@
     opacity: 0.9;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 1024px) {
     .bio-grid { grid-template-columns: 1fr; gap: 50px; }
+    .equipment-grid { grid-template-columns: 1fr; }
     .bio-image::after { top: 20px; left: 20px; }
     .bio-content { padding-right: 0; }
     
@@ -265,6 +266,9 @@
 
 @media (max-width: 768px) {
     .mission-box { padding: 40px 20px; }
-    .mission-box p { font-size: 1.1rem; }
     .timeline-content { padding: 24px; }
+}
+
+@media (max-width: 480px) {
+    .mission-box p { font-size: 1rem; }
 }

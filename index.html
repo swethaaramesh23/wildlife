@@ -19,9 +19,35 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 </head>
 <body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="preloader-bg"></div>
+        <div class="preloader-fog"></div>
+        <div class="preloader-particles"></div>
+        <div class="shutter-flash" id="shutter-flash"></div>
+        
+        <div class="preloader-center">
+            <div class="camera-ring-outer"></div>
+            <div class="camera-ring-inner"></div>
+            <div class="pulse-ring"></div>
+            <div class="loading-text-container">
+                <span id="loading-text" class="loading-text">Exploring the Wild...</span>
+            </div>
+        </div>
+    </div>
+
     <!-- Custom Cursor -->
     <div class="cursor-dot"></div>
     <div class="cursor-outline"></div>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close">&times;</button>
+        <div class="lightbox-content">
+            <img src="" alt="Fullscreen Image">
+            <div class="lightbox-caption"></div>
+        </div>
+    </div>
 
     <!-- Navigation -->
     <nav class="navbar">
@@ -45,10 +71,13 @@
 
     <!-- Hero Section -->
     <header class="hero" id="hero">
+        <div class="hero-layers">
+            <div class="hero-layer hero-layer-particles" id="particles"></div>
+        </div>
         <div class="hero-overlay"></div>
 
         <div class="container hero-grid">
-            <div class="hero-content">
+            <div class="hero-content hero-layer-front" data-depth="0.5">
                 <span class="section-subtitle reveal-text">Premium Portfolio</span>
                 <h1 class="hero-title reveal-text">Capturing Nature's<br><span class="text-gold">Untamed Beauty</span></h1>
                 <p class="subtitle reveal-text delay-1" style="max-width: 500px; margin-bottom: 40px;">Award-winning wildlife photography from the world's most extraordinary landscapes. Cinematic storytelling through the lens.</p>
@@ -57,8 +86,8 @@
                     <a href="portfolio.html" class="btn btn-outline hover-target">View Portfolio</a>
                 </div>
             </div>
-            <div class="hero-media fade-left delay-3">
-                <img src="image/tiger.webp" alt="Majestic Tiger" class="parallax-img">
+            <div class="hero-media fade-left delay-3 hero-layer-front" data-depth="0.7">
+                <img src="image/tiger.webp" alt="Majestic Tiger" class="parallax-img tilt-element">
             </div>
         </div>
         
@@ -79,69 +108,81 @@
             </div>
             
             <div class="collection-grid">
-                <a href="portfolio.html#big-cats" class="collection-card stagger-item">
-                    <div class="card-img-wrapper">
-                        <img src="image/big cat.webp" alt="Big Cats">
-                    </div>
-                    <div class="card-overlay"></div>
-                    <div class="card-content">
-                        <h3>Big Cats</h3>
-                        <p>View Series &rarr;</p>
-                    </div>
-                </a>
-                
-                <a href="portfolio.html#birds-of-prey" class="collection-card stagger-item">
-                    <div class="card-img-wrapper">
-                        <img src="image/birds of prey.webp" alt="Birds of Prey">
-                    </div>
-                    <div class="card-overlay"></div>
-                    <div class="card-content">
-                        <h3>Birds of Prey</h3>
-                        <p>View Series &rarr;</p>
+                <a href="portfolio.html#big-cats" class="collection-card stagger-item tilt-wrapper">
+                    <div class="tilt-element" style="height: 100%;">
+                        <div class="card-img-wrapper">
+                            <img src="image/big cat.webp" alt="Big Cats">
+                        </div>
+                        <div class="card-overlay"></div>
+                        <div class="card-content">
+                            <h3>Big Cats</h3>
+                            <p>View Series &rarr;</p>
+                        </div>
                     </div>
                 </a>
                 
-                <a href="portfolio.html#african" class="collection-card stagger-item">
-                    <div class="card-img-wrapper">
-                        <img src="image/african wildlife.webp" alt="African Wildlife">
-                    </div>
-                    <div class="card-overlay"></div>
-                    <div class="card-content">
-                        <h3>African Savannah</h3>
-                        <p>View Series &rarr;</p>
-                    </div>
-                </a>
-                
-                <a href="portfolio.html#marine" class="collection-card stagger-item">
-                    <div class="card-img-wrapper">
-                        <img src="image/marine life.webp" alt="Marine Life">
-                    </div>
-                    <div class="card-overlay"></div>
-                    <div class="card-content">
-                        <h3>Deep Blue</h3>
-                        <p>View Series &rarr;</p>
+                <a href="portfolio.html#birds-of-prey" class="collection-card stagger-item tilt-wrapper">
+                    <div class="tilt-element" style="height: 100%;">
+                        <div class="card-img-wrapper">
+                            <img src="image/birds of prey.webp" alt="Birds of Prey">
+                        </div>
+                        <div class="card-overlay"></div>
+                        <div class="card-content">
+                            <h3>Birds of Prey</h3>
+                            <p>View Series &rarr;</p>
+                        </div>
                     </div>
                 </a>
                 
-                <a href="portfolio.html#macro" class="collection-card stagger-item">
-                    <div class="card-img-wrapper">
-                        <img src="image/macro wildlife.webp" alt="Macro Wildlife">
+                <a href="portfolio.html#african" class="collection-card stagger-item tilt-wrapper">
+                    <div class="tilt-element" style="height: 100%;">
+                        <div class="card-img-wrapper">
+                            <img src="image/african wildlife.webp" alt="African Wildlife">
+                        </div>
+                        <div class="card-overlay"></div>
+                        <div class="card-content">
+                            <h3>African Savannah</h3>
+                            <p>View Series &rarr;</p>
+                        </div>
                     </div>
-                    <div class="card-overlay"></div>
-                    <div class="card-content">
-                        <h3>Micro World</h3>
-                        <p>View Series &rarr;</p>
+                </a>
+                
+                <a href="portfolio.html#marine" class="collection-card stagger-item tilt-wrapper">
+                    <div class="tilt-element" style="height: 100%;">
+                        <div class="card-img-wrapper">
+                            <img src="image/marine life.webp" alt="Marine Life">
+                        </div>
+                        <div class="card-overlay"></div>
+                        <div class="card-content">
+                            <h3>Deep Blue</h3>
+                            <p>View Series &rarr;</p>
+                        </div>
+                    </div>
+                </a>
+                
+                <a href="portfolio.html#macro" class="collection-card stagger-item tilt-wrapper">
+                    <div class="tilt-element" style="height: 100%;">
+                        <div class="card-img-wrapper">
+                            <img src="image/macro wildlife.webp" alt="Macro Wildlife">
+                        </div>
+                        <div class="card-overlay"></div>
+                        <div class="card-content">
+                            <h3>Micro World</h3>
+                            <p>View Series &rarr;</p>
+                        </div>
                     </div>
                 </a>
 
-                <a href="portfolio.html#landscapes" class="collection-card stagger-item">
-                    <div class="card-img-wrapper">
-                        <img src="image/black & white.webp" alt="Landscapes">
-                    </div>
-                    <div class="card-overlay"></div>
-                    <div class="card-content">
-                        <h3>Monochrome</h3>
-                        <p>View Series &rarr;</p>
+                <a href="portfolio.html#landscapes" class="collection-card stagger-item tilt-wrapper">
+                    <div class="tilt-element" style="height: 100%;">
+                        <div class="card-img-wrapper">
+                            <img src="image/black & white.webp" alt="Landscapes">
+                        </div>
+                        <div class="card-overlay"></div>
+                        <div class="card-content">
+                            <h3>Monochrome</h3>
+                            <p>View Series &rarr;</p>
+                        </div>
                     </div>
                 </a>
             </div>
@@ -216,29 +257,41 @@
             </div>
             
             <div class="masonry-grid stagger-container">
-                <div class="masonry-item tall stagger-item">
-                    <img src="image/elephant.webp" alt="Elephant">
-                    <div class="item-overlay"><span>African Giants</span></div>
+                <div class="masonry-item tall stagger-item tilt-wrapper">
+                    <div class="tilt-element lightbox-trigger" style="height: 100%;">
+                        <img src="image/elephant.webp" alt="African Giants">
+                        <div class="item-overlay"><span>African Giants</span></div>
+                    </div>
                 </div>
-                <div class="masonry-item stagger-item">
-                    <img src="image/birds2.webp" alt="Bird">
-                    <div class="item-overlay"><span>Avian Grace</span></div>
+                <div class="masonry-item stagger-item tilt-wrapper">
+                    <div class="tilt-element lightbox-trigger" style="height: 100%;">
+                        <img src="image/birds2.webp" alt="Avian Grace">
+                        <div class="item-overlay"><span>Avian Grace</span></div>
+                    </div>
                 </div>
-                <div class="masonry-item wide stagger-item">
-                    <img src="image/marine life1.webp" alt="Marine Life">
-                    <div class="item-overlay"><span>Deep Blue</span></div>
+                <div class="masonry-item wide stagger-item tilt-wrapper">
+                    <div class="tilt-element lightbox-trigger" style="height: 100%;">
+                        <img src="image/marine life1.webp" alt="Deep Blue">
+                        <div class="item-overlay"><span>Deep Blue</span></div>
+                    </div>
                 </div>
-                <div class="masonry-item stagger-item">
-                    <img src="image/tiger1.webp" alt="Tiger">
-                    <div class="item-overlay"><span>The Stare</span></div>
+                <div class="masonry-item stagger-item tilt-wrapper">
+                    <div class="tilt-element lightbox-trigger" style="height: 100%;">
+                        <img src="image/tiger1.webp" alt="The Stare">
+                        <div class="item-overlay"><span>The Stare</span></div>
+                    </div>
                 </div>
-                <div class="masonry-item stagger-item">
-                    <img src="image/macro wildlife1.webp" alt="Macro">
-                    <div class="item-overlay"><span>Micro World</span></div>
+                <div class="masonry-item stagger-item tilt-wrapper">
+                    <div class="tilt-element lightbox-trigger" style="height: 100%;">
+                        <img src="image/macro wildlife1.webp" alt="Micro World">
+                        <div class="item-overlay"><span>Micro World</span></div>
+                    </div>
                 </div>
-                <div class="masonry-item stagger-item">
-                    <img src="image/bb.webp" alt="Elephant">
-                    <div class="item-overlay"><span>Dust Bath</span></div>
+                <div class="masonry-item stagger-item tilt-wrapper">
+                    <div class="tilt-element lightbox-trigger" style="height: 100%;">
+                        <img src="image/bb.webp" alt="Dust Bath">
+                        <div class="item-overlay"><span>Dust Bath</span></div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -295,7 +348,7 @@
     </section>
 
     <!-- Upcoming Expeditions Preview -->
-    <section class="section" style="background: rgba(15, 15, 18, 0.4); border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border);">
+    <section class="section expeditions-timeline-section" style="background: rgba(15, 15, 18, 0.4); border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border);">
         <div class="container stagger-container">
             <div class="section-header text-center fade-up">
                 <span class="section-subtitle">Join The Journey</span>
@@ -303,24 +356,32 @@
                 <p class="subtitle" style="margin: 0 auto; max-width: 600px;">Travel alongside award-winning professionals to the most remote corners of the Earth. Learn elite tracking and field photography techniques.</p>
             </div>
             
-            <div class="collection-grid" style="grid-template-columns: repeat(3, 1fr); gap: 30px;">
-                <div class="glass-panel stagger-item" style="padding: 30px; border-radius: 16px;">
-                    <h4 class="text-gold" style="font-size: 0.85rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 15px;">August 2026</h4>
-                    <h3 style="font-size: 1.5rem; margin-bottom: 15px; font-family: var(--font-heading);">The Great Migration</h3>
-                    <p style="color: var(--text-muted); margin-bottom: 25px; line-height: 1.6; font-size: 0.95rem;">Experience the thunder of hooves across the Serengeti. A 10-day immersive masterclass in capturing raw action and predator dynamics.</p>
-                    <a href="expeditions.html" class="btn btn-outline hover-target" style="width: 100%; text-align: center;">View Itinerary</a>
+            <div class="expeditions-grid stagger-container">
+                <div class="timeline-item tilt-wrapper stagger-item">
+                    <div class="timeline-content tilt-element glass-panel">
+                        <h4 class="text-gold timeline-date">August 2026</h4>
+                        <h3 class="timeline-title">The Great Migration</h3>
+                        <p class="timeline-desc">Experience the thunder of hooves across the Serengeti. A 10-day immersive masterclass in capturing raw action and predator dynamics.</p>
+                        <a href="expeditions.html" class="btn btn-outline hover-target" style="width: 100%; text-align: center;">View Itinerary</a>
+                    </div>
                 </div>
-                <div class="glass-panel stagger-item" style="padding: 30px; border-radius: 16px;">
-                    <h4 class="text-gold" style="font-size: 0.85rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 15px;">November 2026</h4>
-                    <h3 style="font-size: 1.5rem; margin-bottom: 15px; font-family: var(--font-heading);">Polar Giants</h3>
-                    <p style="color: var(--text-muted); margin-bottom: 25px; line-height: 1.6; font-size: 0.95rem;">Journey to Svalbard in pursuit of the elusive Polar Bear. Master exposure in extreme high-key snow environments and freezing conditions.</p>
-                    <a href="expeditions.html" class="btn btn-outline hover-target" style="width: 100%; text-align: center;">View Itinerary</a>
+
+                <div class="timeline-item tilt-wrapper stagger-item">
+                    <div class="timeline-content tilt-element glass-panel">
+                        <h4 class="text-gold timeline-date">November 2026</h4>
+                        <h3 class="timeline-title">Polar Giants</h3>
+                        <p class="timeline-desc">Journey to Svalbard in pursuit of the elusive Polar Bear. Master exposure in extreme high-key snow environments and freezing conditions.</p>
+                        <a href="expeditions.html" class="btn btn-outline hover-target" style="width: 100%; text-align: center;">View Itinerary</a>
+                    </div>
                 </div>
-                <div class="glass-panel stagger-item" style="padding: 30px; border-radius: 16px;">
-                    <h4 class="text-gold" style="font-size: 0.85rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 15px;">February 2027</h4>
-                    <h3 style="font-size: 1.5rem; margin-bottom: 15px; font-family: var(--font-heading);">Amazonia Micro</h3>
-                    <p style="color: var(--text-muted); margin-bottom: 25px; line-height: 1.6; font-size: 0.95rem;">A specialized macro-photography workshop focusing on poison dart frogs, rare orchids, and the dense ecosystem of the Amazon basin.</p>
-                    <a href="expeditions.html" class="btn btn-outline hover-target" style="width: 100%; text-align: center;">View Itinerary</a>
+
+                <div class="timeline-item tilt-wrapper stagger-item">
+                    <div class="timeline-content tilt-element glass-panel">
+                        <h4 class="text-gold timeline-date">February 2027</h4>
+                        <h3 class="timeline-title">Amazonia Micro</h3>
+                        <p class="timeline-desc">A specialized macro-photography workshop focusing on poison dart frogs, rare orchids, and the dense ecosystem of the Amazon basin.</p>
+                        <a href="expeditions.html" class="btn btn-outline hover-target" style="width: 100%; text-align: center;">View Itinerary</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -415,7 +476,7 @@
                     <ul class="footer-links" style="margin-bottom: 20px;">
                         <li><a href="contact.html">Contact Us</a></li>
                         <li><span style="color: var(--text-muted); font-size: 14px;">studio@stackly.com</span></li>
-                        <li><span style="color: var(--text-muted); font-size: 14px;">+254 700 000 000</span></li>
+                        <li><span style="color: var(--text-muted); font-size: 14px;">+91 98765 43210</span></li>
                     </ul>
                     <div class="social-icons">
                         <a href="404.html" title="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
@@ -427,7 +488,7 @@
                 <div class="footer-col">
                     <h4 class="footer-title">Our Office</h4>
                     <div class="footer-map-wrapper">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127641.52766869687!2d36.73973347076216!3d-1.303193375753086!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f1172d84d49a7%3A0xf7cf0254b297924c!2sNairobi%2C%20Kenya!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d497511.1146294726!2d80.2090117!3d13.0826802!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5265ea4f7d3361%3A0x6e61a70b6863d433!2sChennai%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                     <p style="color: var(--text-muted); font-size: 13px; line-height: 1.6; margin-top: 15px;">
                         <strong>Hours:</strong> Mon - Fri: 9:00 AM - 6:00 PM<br>

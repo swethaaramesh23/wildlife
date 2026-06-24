@@ -51,7 +51,7 @@
     align-items: center;
     padding: 15px 30px;
     color: var(--text-muted);
-    font-size: 0.95rem;
+    font-size: 0.85rem;
     font-weight: 500;
     transition: var(--transition-smooth);
     border-left: 3px solid transparent;
@@ -165,7 +165,7 @@
 .user-profile span {
     font-weight: 500;
     color: var(--text-main);
-    font-size: 0.95rem;
+    font-size: 0.85rem;
 }
 
 /* Views Container */
@@ -200,20 +200,20 @@
 
 .page-header-dash h2 {
     font-family: var(--font-heading);
-    font-size: 2.2rem;
+    font-size: 1.8rem;
     color: var(--text-main);
     margin-bottom: 8px;
 }
 
 .page-header-dash p {
     color: var(--text-muted);
-    font-size: 1.05rem;
+    font-size: 0.9rem;
 }
 
 /* Stats Row */
 .stats-row {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 30px;
     margin-bottom: 40px;
 }
@@ -250,7 +250,7 @@
 
 .stat-info p {
     color: var(--text-muted);
-    font-size: 0.85rem;
+    font-size: 0.75rem;
     text-transform: uppercase;
     letter-spacing: 1px;
     margin-bottom: 8px;
@@ -261,7 +261,7 @@
 
 .stat-info h3 {
     font-family: var(--font-heading);
-    font-size: 2rem;
+    font-size: 1.6rem;
     font-weight: 600;
     color: var(--text-main);
 }
@@ -283,7 +283,7 @@
 }
 
 .chart-container h3 {
-    font-size: 1.2rem;
+    font-size: 1.05rem;
     margin-bottom: 25px;
     font-weight: 500;
     color: var(--text-main);

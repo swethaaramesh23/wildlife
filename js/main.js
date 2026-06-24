@@ -1,4 +1,42 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Cinematic Preloader Logic
+    const preloader = document.getElementById('preloader');
+    if (preloader) {
+        document.body.style.overflow = 'hidden'; // Lock scroll
+        const loadingText = document.getElementById('loading-text');
+        const shutterFlash = document.getElementById('shutter-flash');
+        
+        const textSequence = ["Exploring the Wild...", "Capturing Nature...", "Loading Adventure..."];
+        let textIndex = 0;
+        
+        const triggerFlash = () => {
+            shutterFlash.classList.remove('flash-active');
+            void shutterFlash.offsetWidth; // trigger reflow
+            shutterFlash.classList.add('flash-active');
+        };
+
+        const textInterval = setInterval(() => {
+            textIndex++;
+            if (textIndex < textSequence.length) {
+                loadingText.style.animation = 'none';
+                void loadingText.offsetWidth; // trigger reflow
+                loadingText.textContent = textSequence[textIndex];
+                loadingText.style.animation = 'text-fade-in-out 0.8s forwards';
+                triggerFlash();
+            }
+        }, 800);
+
+        setTimeout(() => {
+            clearInterval(textInterval);
+            triggerFlash();
+            setTimeout(() => {
+                preloader.classList.add('exit');
+                document.body.style.overflow = ''; // Unlock scroll
+                setTimeout(() => { preloader.remove(); }, 1000);
+            }, 200);
+        }, 2400);
+    }
+
     // Custom Cursor
     const cursorDot = document.querySelector('.cursor-dot');
     const cursorOutline = document.querySelector('.cursor-outline');
@@ -18,19 +56,25 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         // Add hover effect for links and buttons
-        const hoverElements = document.querySelectorAll('a, button, .hover-target, .masonry-item, .collection-card');
+        const hoverElements = document.querySelectorAll('a, button, .hover-target, .masonry-item, .collection-card, .lightbox-trigger');
         hoverElements.forEach(el => {
             el.addEventListener('mouseenter', () => {
-                cursorOutline.style.width = '70px';
-                cursorOutline.style.height = '70px';
+                document.body.classList.add('cursor-hover');
+                cursorOutline.style.width = '80px';
+                cursorOutline.style.height = '80px';
                 cursorOutline.style.backgroundColor = 'rgba(203, 163, 88, 0.1)';
                 cursorOutline.style.borderColor = 'rgba(203, 163, 88, 0.8)';
+                cursorDot.style.width = '0px';
+                cursorDot.style.height = '0px';
             });
             el.addEventListener('mouseleave', () => {
-                cursorOutline.style.width = '44px';
-                cursorOutline.style.height = '44px';
+                document.body.classList.remove('cursor-hover');
+                cursorOutline.style.width = '50px';
+                cursorOutline.style.height = '50px';
                 cursorOutline.style.backgroundColor = 'transparent';
                 cursorOutline.style.borderColor = 'rgba(203, 163, 88, 0.4)';
+                cursorDot.style.width = '8px';
+                cursorDot.style.height = '8px';
             });
         });
     }
@@ -119,6 +163,43 @@ document.addEventListener('DOMContentLoaded', () => {
             link.addEventListener('click', () => {
                 if(isMenuOpen) toggleMenu();
             });
+        });
+    }
+
+    // Lightbox Logic
+    const lightbox = document.getElementById('lightbox');
+    if (lightbox) {
+        const lightboxImg = lightbox.querySelector('img');
+        const lightboxCaption = lightbox.querySelector('.lightbox-caption');
+        const closeBtn = lightbox.querySelector('.lightbox-close');
+        
+        document.querySelectorAll('.lightbox-trigger').forEach(trigger => {
+            trigger.addEventListener('click', (e) => {
+                e.preventDefault();
+                const img = trigger.querySelector('img');
+                const caption = trigger.querySelector('.item-overlay span')?.textContent || trigger.querySelector('img').alt;
+                
+                if(img) {
+                    lightboxImg.src = img.src;
+                    lightboxCaption.textContent = caption;
+                    lightbox.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                }
+            });
+        });
+        
+        const closeLightbox = () => {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+            setTimeout(() => { lightboxImg.src = ''; }, 500); // clear after transition
+        };
+        
+        closeBtn.addEventListener('click', closeLightbox);
+        lightbox.addEventListener('click', (e) => {
+            if(e.target === lightbox) closeLightbox();
+        });
+        document.addEventListener('keydown', (e) => {
+            if(e.key === 'Escape' && lightbox.classList.contains('active')) closeLightbox();
         });
     }
 });

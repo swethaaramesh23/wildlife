@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     let currentFilter = 'all';
     let loadedCount = 0;
-    const itemsPerLoad = 8;
+    const itemsPerLoad = 40;
     let filteredData = [];
 
     // Parse URL for initial filter
@@ -118,7 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (loadedCount >= filteredData.length) {
                 if(loader) loader.classList.remove('active');
             }
-        }, 500);
+        }, 5000);
     }
 
     // Filter Click Events

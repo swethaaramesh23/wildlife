@@ -19,6 +19,22 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 </head>
 <body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="preloader-bg"></div>
+        <div class="preloader-fog"></div>
+        <div class="preloader-particles"></div>
+        <div class="shutter-flash" id="shutter-flash"></div>
+        
+        <div class="preloader-center">
+            <div class="camera-ring-outer"></div>
+            <div class="camera-ring-inner"></div>
+            <div class="pulse-ring"></div>
+            <div class="loading-text-container">
+                <span id="loading-text" class="loading-text">Exploring the Wild...</span>
+            </div>
+        </div>
+    </div>
     <!-- Custom Cursor -->
     <div class="cursor-dot"></div>
     <div class="cursor-outline"></div>
@@ -54,32 +70,32 @@
 
     <!-- Blog Layout -->
     <section class="section" style="padding-top: 40px; padding-bottom: 120px;">
-        <div class="container">
+        <div class="blog-container">
+            <!-- Featured Hero Article -->
+            <article class="blog-card featured stagger-item fade-up">
+                <div class="blog-img">
+                    <img src="image/tiger1.webp" alt="Tiger Photography">
+                    <span class="category-badge">Field Story</span>
+                </div>
+                <div class="blog-content">
+                    <div class="blog-meta">
+                        <span>May 15, 2026</span>
+                        <span>5 Min Read</span>
+                    </div>
+                    <h2><a href="404.html" class="hover-target">Eye to Eye with the Bengal Tiger: A Guide to Ranthambore</a></h2>
+                    <p>Tracking the elusive Bengal tiger requires infinite patience, a deep understanding of alarm calls from langurs and deer, and knowing exactly how to position your vehicle for the best cinematic light. Here is my complete, unfiltered guide based on my latest expedition deep into the Indian jungle.</p>
+                    <a href="404.html" class="read-more hover-target">Read Article &rarr;</a>
+                </div>
+            </article>
+
             <div class="blog-layout">
                 
                 <!-- Main Articles Feed -->
                 <div class="articles-feed stagger-container">
-                    
-                    <!-- Featured Article -->
-                    <article class="blog-card featured stagger-item">
-                        <div class="blog-img">
-                            <img src="image/tiger1.webp" alt="Tiger Photography">
-                            <span class="category-badge">Field Story</span>
-                        </div>
-                        <div class="blog-content">
-                            <div class="blog-meta">
-                                <span>May 15, 2026</span>
-                                <span>5 Min Read</span>
-                            </div>
-                            <h2><a href="404.html" class="hover-target">Eye to Eye with the Bengal Tiger: A Guide to Ranthambore</a></h2>
-                            <p>Tracking the elusive Bengal tiger requires infinite patience, a deep understanding of alarm calls from langurs and deer, and knowing exactly how to position your vehicle for the best cinematic light. Here is my complete, unfiltered guide based on my latest expedition deep into the Indian jungle.</p>
-                            <a href="404.html" class="read-more hover-target">Read Article &rarr;</a>
-                        </div>
-                    </article>
 
                     <!-- Grid Articles -->
                     <div class="blog-grid">
-                        <article class="blog-card stagger-item">
+                        <article class="blog-card stagger-item fade-up">
                             <div class="blog-img">
                                 <img src="image/birds1.webp" alt="Bird Photography">
                                 <span class="category-badge">Tutorial</span>
@@ -94,7 +110,7 @@
                             </div>
                         </article>
 
-                        <article class="blog-card stagger-item">
+                        <article class="blog-card stagger-item fade-up">
                             <div class="blog-img">
                                 <img src="image/elephant1.webp" alt="Elephant Conservation">
                                 <span class="category-badge">Conservation</span>
@@ -109,7 +125,7 @@
                             </div>
                         </article>
 
-                        <article class="blog-card stagger-item">
+                        <article class="blog-card stagger-item fade-up">
                             <div class="blog-img">
                                 <img src="image/macro wildlife1.webp" alt="Macro lens">
                                 <span class="category-badge">Gear</span>
@@ -124,7 +140,7 @@
                             </div>
                         </article>
 
-                        <article class="blog-card stagger-item">
+                        <article class="blog-card stagger-item fade-up">
                             <div class="blog-img">
                                 <img src="image/black & white1.webp" alt="Editing tutorial">
                                 <span class="category-badge">Editing</span>
@@ -166,7 +182,6 @@
                         <ul class="category-list">
                             <li><a href="404.html" class="hover-target">Field Stories <span>12</span></a></li>
                             <li><a href="404.html" class="hover-target">Tutorials <span>8</span></a></li>
-                            <li><a href="404.html" class="hover-target">Gear Reviews <span>5</span></a></li>
                             <li><a href="404.html" class="hover-target">Post-Processing <span>7</span></a></li>
                             <li><a href="404.html" class="hover-target">Conservation <span>15</span></a></li>
                         </ul>
@@ -174,7 +189,7 @@
 
                     <div class="sidebar-widget">
                         <h4 class="widget-title">Newsletter</h4>
-                        <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 20px; line-height: 1.6;">Join the expedition. Get the latest photography tips, gear insights, and exclusive field stories delivered to your inbox.</p>
+                        <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 20px; line-height: 1.6;">Join the expedition. Get the latest photography tips and exclusive field stories delivered to your inbox.</p>
                         <div class="search-box" style="flex-direction: column; gap: 10px;">
                             <input type="email" placeholder="Your email address" style="border-radius: 6px;">
                             <button class="hover-target" style="position: static; width: 100%; padding: 15px; border-radius: 6px;">Subscribe Now</button>
@@ -216,7 +231,7 @@
                     <ul class="footer-links" style="margin-bottom: 20px;">
                         <li><a href="contact.html">Contact Us</a></li>
                         <li><span style="color: var(--text-muted); font-size: 14px;">studio@stackly.com</span></li>
-                        <li><span style="color: var(--text-muted); font-size: 14px;">+254 700 000 000</span></li>
+                        <li><span style="color: var(--text-muted); font-size: 14px;">+91 98765 43210</span></li>
                     </ul>
                     <div class="social-icons">
                         <a href="404.html" title="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
@@ -228,7 +243,7 @@
                 <div class="footer-col">
                     <h4 class="footer-title">Our Office</h4>
                     <div class="footer-map-wrapper">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127641.52766869687!2d36.73973347076216!3d-1.303193375753086!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f1172d84d49a7%3A0xf7cf0254b297924c!2sNairobi%2C%20Kenya!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d497511.1146294726!2d80.2090117!3d13.0826802!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5265ea4f7d3361%3A0x6e61a70b6863d433!2sChennai%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                     <p style="color: var(--text-muted); font-size: 13px; line-height: 1.6; margin-top: 15px;">
                         <strong>Hours:</strong> Mon - Fri: 9:00 AM - 6:00 PM<br>
